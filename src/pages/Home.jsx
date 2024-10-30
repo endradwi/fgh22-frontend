@@ -17,7 +17,7 @@ return (
     <div><img src={logo} alt="viteLogo" /></div>
     <ul className='flex gap-14'>
         <li>
-        <a href="#">Home</a>
+        <Link to="/homepage">Home</Link>
         </li>
         <li>
         <a href="#">Movie</a>
@@ -32,13 +32,13 @@ return (
     </div>
     </nav>
     <main className='px-32 py-12 flex flex-col gap-12'>
-    <div className='flex'>
+    <div className='flex '>
         <div className='flex-1 flex gap-3 flex-col'>
         <div className='text-lg text-blue-700 font-bold'>MOVIE TICKET PURCHASES #1 IN INDONESIA</div>
         <div className='text-5xl font-medium'>Experience the Magic of Cinema: Book Your Tickets Today</div>
         <div className='font-normal text-base text-gray-500'>Sign up and get the ticket with a lot of discount</div>
         </div>
-        <div className='flec-1'>
+        <div className='flex-1'>
         <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
         <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
         <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
