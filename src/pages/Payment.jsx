@@ -8,7 +8,14 @@ import ig from '../assets/instagram.svg'
 import twit from '../assets/twitter.svg'
 import yt from '../assets/youtube.svg'
 import {Link} from 'react-router-dom'
-import Spider from '../assets/spider.svg'
+import gpay from '../assets/gpay.svg'
+import gopay from '../assets/gopay.svg'
+import bca from '../assets/bca.svg'
+import dana from '../assets/dana.svg'
+import bri from '../assets/bri.svg'
+import ovo from '../assets/ovo.svg'
+import visa from '../assets/visa.svg'
+import paypal from '../assets/paypal.svg'
 
 function OrderPage() {
 
@@ -80,14 +87,30 @@ return (
                 </form>
                 <span>Payment Method</span>
                 <div className='grid grid-cols-4 gap-5'>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
-                    <div className='aspect-square w-42 border border-black'></div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={gpay} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={visa} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={gopay} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={paypal} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={dana} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={bca} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={bri} alt="" />
+                    </div>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                        <img src={ovo} alt="" />
+                    </div>
                 </div>
                 <div></div>
             </div>

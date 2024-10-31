@@ -8,6 +8,8 @@ import HomePage from './pages/Home2.jsx';
 import Detail from './pages/Detail.jsx';
 import OrderPage from './pages/OrderPage.jsx';
 import Payment from './pages/Payment.jsx';
+import TiketResult from './pages/TiketResult.jsx';
+import Profile from './pages/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
   {
     path: '/payment',
     element: <Payment />,
+  },
+  {
+    path: '/tiketresult',
+    element: <TiketResult />,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
   },
 ]);
 function App() {
