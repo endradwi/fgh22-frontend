@@ -10,7 +10,7 @@ import yt from '../assets/youtube.svg'
 import {Link} from 'react-router-dom'
 import Spider from '../assets/spider.svg'
 
-function Home() {
+function Detail() {
 
 return (
     <>
@@ -43,7 +43,7 @@ return (
                         <span className='py-1 px-5 rounded-2xl bg-orange-600'>Action</span>
                         <span className='py-1 px-5 rounded-2xl bg-orange-600'>Adventure</span>
                     </div>
-                    <div className='grid grid-cols-2 gap-6'>
+                    <div className='grid grid-cols-2'>
                         <div>
                             <div className='text-sm text-orange-300'>Release date</div>
                             <div className='text-base'>June 28, 2017</div>
@@ -165,4 +165,4 @@ return (
 )
 }
 
-export default Home
+export default Detail
