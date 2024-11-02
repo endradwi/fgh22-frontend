@@ -10,6 +10,10 @@ import OrderPage from './pages/OrderPage.jsx';
 import Payment from './pages/Payment.jsx';
 import TiketResult from './pages/TiketResult.jsx';
 import Profile from './pages/Profile.jsx';
+import OrderHistoy from './pages/OrderHistory.jsx';
+import Admin from './pages/Admin.jsx';
+import AdminPage from './pages/AdminPage.jsx';
+import AddMovie from './pages/AddMovie.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +51,22 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: <Profile />,
+  },
+  {
+    path: '/orderhistory',
+    element: <OrderHistoy />,
+  },
+  {
+    path: '/admin',
+    element: <Admin />,
+  },
+  {
+    path: '/adminpage',
+    element: <AdminPage />,
+  },
+  {
+    path: '/addmovie',
+    element: <AddMovie />,
   },
 ]);
 function App() {
