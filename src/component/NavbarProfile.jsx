@@ -1,6 +1,7 @@
 import React from 'react'
 import profile from '../assets/profileimg.png'
 import logo from '../assets/imagelogo.png'
+import {Link} from 'react-router-dom'
 
 function NavbarProfile() {
   return (
@@ -9,13 +10,13 @@ function NavbarProfile() {
     <img className='h-16 w-20' src={logo} alt="viteLogo" />
     <ul className='flex gap-14 text-xl'>
         <li>
-        <a href="#">Home</a>
+       <Link to="/"> Home</Link>
         </li>
         <li>
-        <a href="#">Movie</a>
+        <Link to='/homepage'>Movie</Link>
         </li>
         <li>
-        <a href="#">Buy Ticket</a>
+        <Link to='/homepage'>Buy Ticket</Link>
         </li>
     </ul>
     <div className='flex gap-3'>

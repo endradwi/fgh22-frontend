@@ -6,6 +6,7 @@ import image1 from '../assets/movie1.webp'
 import { IoIosSearch } from "react-icons/io";
 import Newslatter from '../component/Newslatter'
 import { IoMdArrowRoundForward } from "react-icons/io";
+import MovieCard from '../component/MovieCard'
 
 function Home() {
 
@@ -43,67 +44,18 @@ return (
     </div>
     <div className='flex flex-col gap-8'>
     <div className='flex gap-6 flex-wrap justify-between'>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
+        <MovieCard/>        
     </div>
         <div className='flex justify-center gap-5'>
             <div className='bg-orange-400 aspect-square w-14 rounded-full flex justify-center items-center' >1</div>

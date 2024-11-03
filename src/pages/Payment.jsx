@@ -11,9 +11,10 @@ import paypal from '../assets/paypal.svg'
 import NavbarHome from '../component/NavbarHome'
 import Footer from '../component/Footer'
 import { IoCheckmark } from "react-icons/io5";
+import { IoCloseCircle } from "react-icons/io5";
 
 function OrderPage() {
-
+    const [isShow, Setshow] = React.useState(false)
 return (
     <>
     <NavbarHome/>
@@ -101,12 +102,13 @@ return (
                         <img src={ovo} alt="" />
                     </div>
                 </div>
-                <button className='max-w-2xl h-14 bg-orange-500 text-white font-semibold rounded-xl'>Pay your order</button>
+                <button onClick={()=>Setshow(!isShow)} className='max-w-2xl h-14 bg-orange-500 text-white font-semibold rounded-xl'>Pay your order</button>
             </div>
         </div>
+        {isShow && (
         <div className='w-screen h-[1900px] bg-cover bg-black opacity-80 absolute mt-24  flex justify-center items-center'>
-
         <div className=' absolute bg-white px-3.5 pt-6 pb-14 flex flex-col gap-5'>
+        <button onClick={() =>Setshow(!isShow)}><IoCloseCircle className='text-2xl'/></button>
             <span className='text-3xl font-bold text-center'>Payment Info</span>
             <div className='flex justify-between'>
                 <div className='flex gap-3'>
@@ -126,11 +128,12 @@ return (
                 <div>$30</div>
             </div>
             <p className='max-w-md'>Pay this payment bill before it is due,<span className='text-red-600'> on June 23, 2023. </span>If the bill has not been paid by the specified time, it will be forfeited</p>
-            <Link to="/tiketresult" className='h-14 bg-orange-500 rounded-lg text-white flex justify-center items-center'> Check Payment</Link>
+            <Link to="/tiketresult" className='h-14 bg-orange-500 rounded-lg text-white flex justify-center items-center hover:bg-orange-700'> Check Payment</Link>
             <button>Pay Later</button>
         </div>
-
         </div>
+        )}
+
     </main>
     
     <Footer/>

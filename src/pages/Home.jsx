@@ -13,6 +13,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import NavbarHome from '../component/NavbarHome'
 import Footer from '../component/Footer'
 import Newslatter from '../component/Newslatter'
+import MovieCard from '../component/MovieCard'
 
 function Home() {
 
@@ -65,70 +66,17 @@ return (
     <div className='flex flex-col text-center gap-8'>
         <div className='text-lg text-blue-600 font-bold'>MOVIES</div>
         <div className='text-3xl'>Exciting Movies That Should Be Watched Today</div>
-    <div className='flex gap-6 flex-wrap justify-between'>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
+    <div className='flex gap-6 flex-shrink-0 overflow-x-scroll justify-between'>
+        <MovieCard/>
+        <MovieCard/>
+        <MovieCard/>
+        <MovieCard/>
+        <MovieCard/>
+        <MovieCard/>
+        <MovieCard/>
         
     </div>
-       <Link to="/homepage"> <div className='text-blue-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
+    <Link to="/homepage"> <div className='text-blue-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
     </div>
     <div className='flex flex-col gap-7'>
         <div className='flex items-center justify-between'>
@@ -145,69 +93,15 @@ return (
             </div>
         </div>
         </div>
-        <div className='flex gap-6 flex-wrap justify-between'>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
+        <div className='flex gap-6 flex-shrink-0 justify-between overflow-x-scroll'>
+            <MovieCard/>  
+            <MovieCard/>  
+            <MovieCard/>  
+            <MovieCard/>  
+            <MovieCard/>  
+            <MovieCard/>  
+            <MovieCard/>   
         </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        <div className='flex flex-col gap-3'>
-            <div className='w-56 rounded-lg overflow-hidden'>
-                <img className='w-60 ' src={image1} alt="" />
-            </div>
-            <div className='flex justify-start'>Black Widow</div>
-            <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
-            </div>
-        </div>
-        
-    </div>
     </div>
     <Newslatter />
     </main>

@@ -19,8 +19,8 @@ return (
     <>
     <NavbarHome/>
     <main className=' gap-8 flex justify-center items-center bg-gray-300'>
-    <div className='flex-1 bg-[url(./assets/bg.svg)] max-w-4xl w-screen  h-screen overflow-hidden'>
-    <div className='w-screen max-w-4xl h-screen absolute bg-black opacity-50 flex items-center justify-center'></div>
+    <div className='flex-1 bg-[url(./assets/bg.svg)] max-w-4xl  h-[850px] overflow-hidden relative'>
+    <div className='w-screen max-w-4xl h-[850px] absolute bg-black opacity-50 flex items-center justify-center'></div>
     <div className='w-screen h-screen text-white flex flex-col px-12 py-96 relative gap-6 max-w-2xl'>
         <div className='text-5xl font-bold'>Thankyou For Purchasing</div>
         <div className='text-2xl'>Lorem ipsum dolor sit amet consectetur. Quam pretium pretium tempor integer sed magna et.</div>
@@ -69,7 +69,7 @@ return (
             </div>
             <div className='flex flex-col gap-2.5 justify-center items-center'>
             <div className='w-80 bg-orange-400 hover:bg-orange-600 rounded-xl text-white h-14 flex justify-center items-center' >Download</div>
-            <div className='w-80 bg-orange-400 hover:bg-orange-600 rounded-xl text-white h-14 flex justify-center items-center' ><Link to="/profile">Done</Link></div>
+            <Link to="/profile" className='w-80 bg-orange-400 hover:bg-orange-600 rounded-xl text-white h-14 flex justify-center items-center' >Done</Link>
             </div>
         </div>
     </div>
