@@ -1,8 +1,12 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
+import logo from '../assets/imagelogo.png'
 import {Link} from 'react-router-dom'
 import profile from '../assets/profileimg.png'
-import graph from '../assets/graph.svg'
+import { FiCalendar } from "react-icons/fi";
+import image from '../assets/image1.jpg'
+import { FaEye } from "react-icons/fa";
+import { FaPen } from "react-icons/fa6";
+import { FaTrash } from "react-icons/fa";
 
 
 function AdminPage() {
@@ -10,13 +14,13 @@ function AdminPage() {
 return (
     <>
     <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
+    <img className='h-16 w-20' src={logo} alt="viteLogo" />
+    <ul className='flex gap-14 text-xl'>
         <li>
         <a href="#">Dasboard</a>
         </li>
         <li>
-        <a href="#">Movie</a>
+        <a href="#" className='text-orange-600'>Movie</a>
         </li>
     </ul>
     <div className='flex gap-3'>
@@ -32,10 +36,13 @@ return (
             <span className='text-2xl font-bold'>List Movie</span>
             <form className='flex gap-3.5'>
                 <label htmlFor=""/>
-                <select name="" id="" className='text-base font-semibold bg-gray-300 rounded-md py-3.5 px-16'>
+                <div className='bg-gray-300 rounded-xl py-3.5 px-5 flex items-center gap-10'>
+                <FiCalendar className='text-gray-600' />
+                <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none'>
                     <option value="">November 2023</option>
                 </select>
-                <button className='h-14 w-36 bg-blue-600 rounded-xl'>Add Movies</button>
+                </div>
+               <Link to="/addmovie" className='h-14 w-36 bg-orange-600 text-white rounded-xl flex justify-center items-center'>Add Movies</Link>
             </form>
         </div>
         <table className='text-center '>
@@ -53,89 +60,89 @@ return (
             <tbody>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>1</td>
-                    <td className='p-5'></td>
+                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
                     <td className='p-5'>Spiderman HomeComing</td>
                     <td className='p-5'>Action, Adventure</td>
                     <td className='p-5'>07/05/2023</td>
                     <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <td className='p-5 flex gap-2'>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                     </td>
                 </tr>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>1</td>
-                    <td className='p-5'></td>
+                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
                     <td className='p-5'>Spiderman HomeComing</td>
                     <td className='p-5'>Action, Adventure</td>
                     <td className='p-5'>07/05/2023</td>
                     <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <td className='p-5 flex gap-2'>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                     </td>
                 </tr>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>1</td>
-                    <td className='p-5'></td>
+                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
                     <td className='p-5'>Spiderman HomeComing</td>
                     <td className='p-5'>Action, Adventure</td>
                     <td className='p-5'>07/05/2023</td>
                     <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <td className='p-5 flex gap-2'>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                     </td>
                 </tr>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>1</td>
-                    <td className='p-5'></td>
+                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
                     <td className='p-5'>Spiderman HomeComing</td>
                     <td className='p-5'>Action, Adventure</td>
                     <td className='p-5'>07/05/2023</td>
                     <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <td className='p-5 flex gap-2'>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                     </td>
                 </tr>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>1</td>
-                    <td className='p-5'></td>
+                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
                     <td className='p-5'>Spiderman HomeComing</td>
                     <td className='p-5'>Action, Adventure</td>
                     <td className='p-5'>07/05/2023</td>
                     <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <td className='p-5 flex gap-2'>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                     </td>
                 </tr>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>1</td>
-                    <td className='p-5'></td>
+                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
                     <td className='p-5'>Spiderman HomeComing</td>
                     <td className='p-5'>Action, Adventure</td>
                     <td className='p-5'>07/05/2023</td>
                     <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <td className='p-5 flex gap-2'>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
+                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div className='flex justify-center gap-2'>
-            <button className='bg-blue-600 rounded-lg flex justify-center items-center py-1 px-3.5'>1</button>
-            <button className='bg-blue-600 rounded-lg flex justify-center items-center py-1 px-3.5'>2</button>
-            <button className='bg-blue-600 rounded-lg flex justify-center items-center py-1 px-3.5'>3</button>
-            <button className='bg-blue-600 rounded-lg flex justify-center items-center py-1 px-3.5'>4</button>
+            <button className='text-gray-600 bg-orange-600 rounded-lg flex justify-center items-center py-1 px-3.5'>1</button>
+            <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>2</button>
+            <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>3</button>
+            <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>4</button>
         </div>
     </div>
     </main>

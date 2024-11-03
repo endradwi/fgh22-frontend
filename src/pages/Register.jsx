@@ -1,44 +1,61 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
+import logo from '../assets/imagelogo.png'
+import { FaEye } from "react-icons/fa";
+import {Link} from 'react-router-dom'
+import BtnLgn from '../component/BtnLgn';
 
 function Register() {
 
 return (
     <>
-    <div className='bg-[url(./assets/bg.svg)] relative bg-no-repeat bg-cover flex flex-col gap-5 pt-20 w-screen pb-16 h-screen px-96 justify-center items-center '>
-      {/* <div className='w-screen h-screen bg-blue-400 absolute'></div> */}
-        <img src={logo} alt="" />
-        <div className='rounded-lg bg-white px-20 pt-9 pb-14 flex flex-col justify-between gap-11 items-center'>
-            <div className='flex items-center gap-6'>
-            <div className='bg-orange-300 aspect-square w-12 rounded-full flex justify-center items-center'>1</div>
+    <div className='bg-[url(./assets/bg.svg)] w-screen bg-center h-screen bg-cover'>
+    <div className='w-screen h-screen bg-black absolute opacity-50'></div>
+    <div className='relative flex flex-col justify-center items-center'>
+        <img className='w-76 h-24' src={logo} alt="" />
+        <div className='rounded-xl bg-white px-20 pt-7 pb-10 flex flex-col justify-between gap-9 items-center w-full max-w-96 md:max-w-2xl'>
+            <div className='md:flex items-center gap-6 hidden'>
+            <div className='flex flex-col items-center justify-center gap-2'>
+            <div className='bg-orange-400 aspect-square w-16 text-white text-2xl rounded-full flex justify-center items-center'>1</div>
+            <div className='text-lg'>Fill Form</div>
+            </div>
             <div className='border-t-2 border-black w-16 border-dashed'></div>
-            <div className='bg-orange-300 aspect-square w-12 rounded-full flex justify-center items-center'>2</div>
+            <div className='flex flex-col items-center justify-center gap-2'>
+            <div className='bg-gray-400 aspect-square w-16 text-white text-2xl rounded-full flex justify-center items-center'>2</div>
+            <div className='text-lg text-gray-400'>Activate</div>
+            </div>
             <div className='border-t-2 border-black w-16 border-dashed'></div>
-            <div className='bg-orange-300 aspect-square w-12 rounded-full flex justify-center items-center'>3</div>
+            <div className='flex flex-col items-center justify-center gap-2'>
+            <div className='bg-gray-400 aspect-square w-16 text-white text-2xl rounded-full flex justify-center items-center'>3</div>
+            <div className='text-lg text-gray-400'>Done</div>
+            </div>
             </div>
             <form className='flex flex-col gap-6'>
-            <label htmlFor="email">Email</label>
-            <div>
-            <input className='outline-none border-gray-400 border-solid border py-5 rounded pl-6 pr-56' type="email" id='email' name='email' placeholder='Enter your email' />
+            <label className='text-xl' htmlFor="email">Email</label>
+            <div className='w-full'>
+            <input className='outline-none w-full text-gray-700 border-gray-400 border box-border rounded py-5 pl-6 pr-56' type="email" id='email' name='email' placeholder='Enter your email' />
             </div>
-            <label htmlFor="password">Password</label>
-            <div>
-            <input className='outline-none border-gray-400 border-solid border py-5 rounded pl-6 pr-56' type="text" id='password' name='password' placeholder='Enter your password' />
+            <label className='text-xl' htmlFor="password">Password</label>
+            <div className='flex justify-between items-center border-gray-400 border w-full rounded pr-5'>
+            <input className='outline-none text-gray-700 w-full box-border py-5 pl-6 ' type="text" id='password' name='password' placeholder='Enter your password' />
+            <FaEye className='h-7 w-7 text-gray-400'/>
             </div>
-            <div>
+            <div className='flex gap-2'>
             <input type="checkbox" id='agree' name='agree'/>
             <label htmlFor="agree">I agree to terms & conditions</label>
             </div>
             <div>
-            <button className='bg-orange-400 rounded px-10 w-full max-w-md h-16'>Join For Free Now</button>
+            <button className='bg-orange-400 rounded-lg px-10 w-full max-w-md h-16 hover:bg-orange-700 text-white'>Join For Free Now</button>
             </div>
             </form>
-            <span>Already have an account? Log in</span>
-            <div>
-            <a href="">Google</a>
-            <a href="">Faceebook</a>
+            <span>Already have an account? <Link className='text-orange-600 underline underline-offset-4' to="/login">Log in</Link></span>
+            <div className='flex items-center gap-2'>
+                <hr className='border border-gray-300 w-48' />
+                <span className='text-xs'>Or</span>
+                <hr className='border border-gray-300 w-48' />
             </div>
+            <BtnLgn />
         </div>
+    </div>
     </div>
     </>
 )

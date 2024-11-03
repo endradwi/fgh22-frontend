@@ -4,9 +4,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",],
   theme: {
     extend: {
-      backgroundImage:{
-        'background' : "url('./assets/bg.svg')" 
-      }
     },
   },
   plugins: [],

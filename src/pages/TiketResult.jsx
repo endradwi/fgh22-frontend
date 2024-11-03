@@ -9,30 +9,15 @@ import twit from '../assets/twitter.svg'
 import yt from '../assets/youtube.svg'
 import {Link} from 'react-router-dom'
 import qr from '../assets/qr.svg'
+import NavbarHome from '../component/NavbarHome'
+import Footer from '../component/Footer'
 
 
 function TiketResult() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
-        <li>
-        <a href="#">Home</a>
-        </li>
-        <li>
-        <a href="#">Movie</a>
-        </li>
-        <li>
-        <a href="#">Buy Ticket</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <Link to="/register" className='border-red-700 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
-        <Link to="/login" className='border-red-700 border rounded-2xl px-4 py-3 bg-red-600 text-white'>Signin</Link>
-    </div>
-    </nav>
+    <NavbarHome/>
     <main className=' gap-8 flex justify-center items-center bg-gray-300'>
     <div className='flex-1 bg-[url(./assets/bg.svg)] max-w-4xl w-screen  h-screen overflow-hidden'>
     <div className='w-screen max-w-4xl h-screen absolute bg-black opacity-50 flex items-center justify-center'></div>
@@ -83,53 +68,13 @@ return (
                 </div>
             </div>
             <div className='flex flex-col gap-2.5 justify-center items-center'>
-            <div className='w-80 bg-orange-400 rounded h-14 flex justify-center items-center' >Download</div>
-            <div className='w-80 bg-orange-400 rounded h-14 flex justify-center items-center' >Done</div>
+            <div className='w-80 bg-orange-400 hover:bg-orange-600 rounded-xl text-white h-14 flex justify-center items-center' >Download</div>
+            <div className='w-80 bg-orange-400 hover:bg-orange-600 rounded-xl text-white h-14 flex justify-center items-center' ><Link to="/profile">Done</Link></div>
             </div>
         </div>
     </div>
     </main>
-    <footer className='flex flex-col gap-12 px-32 py-12'>
-    <div className='flex justify-between'>
-        <div className='flex flex-col gap-7'>
-        <img className='w-40' src={logo} alt="" />
-        <div>Stop waiting in line. Buy tickets
-        conveniently, watch movies quietly.</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Explore</div>
-        <div>Cinemas</div>
-        <div>Movies List</div>
-        <div>Notification</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Our Sponsor</div>
-        <img className='w-32' src={edu} alt="" />
-        <img className='w-44' src={cine} alt="" />
-        <img className='w-20' src={hiflix} alt="" />
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm pr-16'>
-        <div className='text-base font-bold'>Follow us</div>
-        <div className='flex gap-4'>
-            <img src={fb} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={ig} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={twit} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={yt} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        </div>
-    </div>
-    <div className='text-center'>© 2020 Tickitz. All Rights Reserved.</div>
-    </footer>
+    <Footer/>
     </>
 )
 }

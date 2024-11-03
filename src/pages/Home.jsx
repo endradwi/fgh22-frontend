@@ -1,76 +1,134 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
-import edu from '../assets/ebv.svg'
-import cine from '../assets/Cine.svg'
-import hiflix from '../assets/hiflix.svg'
-import fb from '../assets/facebook.svg'
-import ig from '../assets/instagram.svg'
-import twit from '../assets/twitter.svg'
-import yt from '../assets/youtube.svg'
+import image1 from '../assets/movie1.webp'
+import image2 from '../assets/image2.jpg'
+import image3 from '../assets/image3.jpg'
+import image4 from '../assets/image4.jpg'
 import {Link} from 'react-router-dom'
+import { TbShieldCheckFilled } from "react-icons/tb";
+import { TbCircleCheckFilled } from "react-icons/tb";
+import { HiChatAlt2 } from "react-icons/hi";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoMdArrowRoundForward } from "react-icons/io";
+
+import NavbarHome from '../component/NavbarHome'
+import Footer from '../component/Footer'
+import Newslatter from '../component/Newslatter'
 
 function Home() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
-        <li>
-        <Link to="/homepage">Home</Link>
-        </li>
-        <li>
-        <a href="#">Movie</a>
-        </li>
-        <li>
-        <a href="#">Buy Ticket</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <Link to="/register" className='border-red-700 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
-        <Link to="/login" className='border-red-700 border rounded-2xl px-4 py-3 bg-red-600 text-white'>Signin</Link>
-    </div>
-    </nav>
-    <main className='px-32 py-12 flex flex-col gap-12'>
-    <div className='flex '>
-        <div className='flex-1 flex gap-3 flex-col'>
+    <NavbarHome />
+    <main className='max-w-xl md:max-w-none md:px-32 py-12 flex flex-col gap-12'>
+    <div className='flex flex-col md:flex-row  items-center text-center md:text-left md:justify-between gap-5 md:gap-0'>
+        <div className='flex gap-3 flex-col'>
         <div className='text-lg text-blue-700 font-bold'>MOVIE TICKET PURCHASES #1 IN INDONESIA</div>
-        <div className='text-5xl font-medium'>Experience the Magic of Cinema: Book Your Tickets Today</div>
+        <div className='text-5xl font-medium max-w-xl'>Experience the Magic of Cinema: Book Your Tickets Today</div>
         <div className='font-normal text-base text-gray-500'>Sign up and get the ticket with a lot of discount</div>
         </div>
-        <div className='flex-1'>
-        <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
-        <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
-        <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
-        <div className='w-20 border-2 border-black'>adasdadsadahfgadgfha</div>
+        <div>
+            <div className='columns-2 gap-2'>
+                <img className='rounded-t-2xl h-[213px]' src={image1} alt="" />
+                <img className='rounded-b-2xl mt-2 h-[250px]' src={image2} alt="" />
+                <img className='rounded-t-2xl mb-2 h-[240px]' src={image3} alt="" />
+                <img className='rounded-b-2xl h-[223px]' src={image4} alt="" />
+            </div>
         </div>
     </div>
-    <div className='flex flex-col gap-6 '>
-        <div className='text-lg text-blue-700 font-bold'>WHY CHOOSE US</div>
-        <div className='text-3xl'>Unleashing the Ultimate Movie Experience</div>
-        <div className='flex justify-between gap-8'>
-        <div className='flex flex-col gap-5 '>
-            <div className='aspect-square bg-red-400 w-14 rounded-full'></div>
+    <div className='flex flex-col gap-6'>
+        <div className='text-lg text-orange-500 font-bold flex justify-center items-center md:block'>WHY CHOOSE US</div>
+        <div className='text-3xl min-w-96 max-w-xl md:max-w-md flex justify-center items-center md:block'>Unleashing the Ultimate Movie Experience</div>
+        <div className='flex flex-col md:flex-row md:justify-between gap-8'>
+        <div className='flex flex-col gap-5 justify-center items-center md:items-start'>
+            <div className='aspect-square bg-orange-200 text-orange-600 w-14 rounded-full flex justify-center items-center'>
+            <TbShieldCheckFilled className='w-8 h-8'/>
+            </div>
             <div className='text-lg font-bold'>Guaranteed</div>
-            <div className='text-blue-300 text-base font-normal'>Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</div>
+            <div className='text-yellow-700 text-base font-normal max-w-72'>Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</div>
         </div>
-        <div className='flex flex-col gap-5 '>
-            <div className='aspect-square bg-red-400 w-14 rounded-full'></div>
+        <div className='flex flex-col gap-5 justify-center items-center md:items-start'>
+            <div className='aspect-square bg-orange-200 text-orange-600 w-14 rounded-full flex justify-center items-center'>
+            <TbCircleCheckFilled className='h-8 w-8'/>
+            </div>
             <div className='text-lg font-bold'>Guaranteed</div>
-            <div className='text-blue-300 text-base font-normal'>Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</div>
+            <div className='text-yellow-700 text-base font-normal max-w-72'>Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</div>
         </div>
-        <div className='flex flex-col gap-5 '>
-            <div className='aspect-square bg-red-400 w-14 rounded-full'></div>
+        <div className='flex flex-col gap-5 justify-center items-center md:items-start'>
+            <div className='aspect-square bg-orange-200 text-orange-600 w-14 rounded-full flex justify-center items-center'>
+            <HiChatAlt2 className='h-8 w-8'/>
+            </div>
             <div className='text-lg font-bold'>Guaranteed</div>
-            <div className='text-blue-300 text-base font-normal'>Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</div>
+            <div className='text-yellow-700 text-base font-normal max-w-72'>Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</div>
         </div>
         </div>
     </div>
     <div className='flex flex-col text-center gap-8'>
         <div className='text-lg text-blue-600 font-bold'>MOVIES</div>
         <div className='text-3xl'>Exciting Movies That Should Be Watched Today</div>
-        <div className='h-72 w-72 bg-slate-400'></div>
-        <div className='text-blue-700 text-lg font-bold'>View All</div>
+    <div className='flex gap-6 flex-wrap justify-between'>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        
+    </div>
+       <Link to="/homepage"> <div className='text-blue-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
     </div>
     <div className='flex flex-col gap-7'>
         <div className='flex items-center justify-between'>
@@ -79,66 +137,81 @@ return (
             <div className='text-3xl font-normal'>Exciting Movie Coming Soon</div>
         </div>
         <div className='flex gap-2'>
-            <div className='aspect-square bg-red-400 w-14 rounded-full'></div>
-            <div className='aspect-square bg-red-400 w-14 rounded-full'></div>
+            <div className='aspect-square bg-gray-400 text-white w-14 rounded-full flex justify-center items-center'>
+            <IoMdArrowRoundBack className='h-8 w-8'/>
+            </div>
+            <div className='aspect-square bg-orange-400 text-white w-14 rounded-full flex justify-center items-center'>
+            <IoMdArrowRoundForward className='h-8 w-8'/>
+            </div>
         </div>
         </div>
-        <div className='h-72 w-72 bg-slate-400'></div>
+        <div className='flex gap-6 flex-wrap justify-between'>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        <div className='flex flex-col gap-3'>
+            <div className='w-56 rounded-lg overflow-hidden'>
+                <img className='w-60 ' src={image1} alt="" />
+            </div>
+            <div className='flex justify-start'>Black Widow</div>
+            <div className='flex gap-2'>
+                <span className='w-20 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold'>Action</span>
+                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-xs flex justify-center items-center font-semibold' >Advanture</span>
+            </div>
+        </div>
+        
     </div>
-    <div className='px-40 py-20 bg-red-600 rounded-2xl flex flex-col items-center gap-12'>
-        <div className='text-5xl text-white font-normal'>Subscribe to our newsletter</div>
-        <div>
-        <form className='flex gap-3'>
-            <label htmlFor="name"></label>
-            <input  className='py-4 px-5 outline-none rounded bg-transparent border-white border placeholder-white' type="text" id='name' name='name' placeholder='First name' />
-            <label htmlFor=""></label>
-            <input  className='py-4 px-5 outline-none rounded bg-transparent border-white border placeholder-white' type="email" id='email' name='email' placeholder='Email address'/>
-            <button className='py-4 px-11 bg-white rounded-lg text-red-700' >Click Me</button>
-        </form>
-        </div>
     </div>
+    <Newslatter />
     </main>
-    <footer className='flex flex-col gap-12 px-32 py-12'>
-    <div className='flex justify-between'>
-        <div className='flex flex-col gap-7'>
-        <img className='w-40' src={logo} alt="" />
-        <div>Stop waiting in line. Buy tickets
-        conveniently, watch movies quietly.</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Explore</div>
-        <div>Cinemas</div>
-        <div>Movies List</div>
-        <div>Notification</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Our Sponsor</div>
-        <img className='w-32' src={edu} alt="" />
-        <img className='w-44' src={cine} alt="" />
-        <img className='w-20' src={hiflix} alt="" />
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm pr-16'>
-        <div className='text-base font-bold'>Follow us</div>
-        <div className='flex gap-4'>
-            <img src={fb} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={ig} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={twit} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={yt} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        </div>
-    </div>
-    <div className='text-center'>© 2020 Tickitz. All Rights Reserved.</div>
-    </footer>
+    <Footer />
     </>
 )
 }

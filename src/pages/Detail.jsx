@@ -9,29 +9,14 @@ import twit from '../assets/twitter.svg'
 import yt from '../assets/youtube.svg'
 import {Link} from 'react-router-dom'
 import Spider from '../assets/spider.svg'
+import NavbarHome from '../component/NavbarHome'
+import Footer from '../component/Footer'
 
 function Detail() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
-        <li>
-        <a href="#">Home</a>
-        </li>
-        <li>
-        <a href="#">Movie</a>
-        </li>
-        <li>
-        <a href="#">Buy Ticket</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <Link to="/register" className='border-red-700 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
-        <Link to="/login" className='border-red-700 border rounded-2xl px-4 py-3 bg-red-600 text-white'>Signin</Link>
-    </div>
-    </nav>
+    <NavbarHome/>
     <div className='flex bg-[url(./assets/spiderman.svg)] bg-cover bg-center py-36 px-32 relative '>
         <div className='flex absolute gap-4'>
             <img src={Spider} alt="" />
@@ -112,55 +97,17 @@ return (
             </div>
         </div>
         <div className='flex justify-center gap-2'>
-            <span className='flex justify-center items-center p-2 bg-orange-200 rounded'>1</span>
-            <span className='flex justify-center items-center p-2 bg-orange-200 rounded'>2</span>
-            <span className='flex justify-center items-center p-2 bg-orange-200 rounded'>3</span>
-            <span className='flex justify-center items-center p-2 bg-orange-200 rounded'>4</span>
+            <span className='flex justify-center items-center w-10 h-10 bg-orange-400 text-gray-300 rounded-md'>1</span>
+            <span className='flex justify-center items-center w-10 h-10 bg-gray-400 text-gray-300 rounded-md'>2</span>
+            <span className='flex justify-center items-center w-10 h-10 bg-gray-400 text-gray-300 rounded-md'>3</span>
+            <span className='flex justify-center items-center w-10 h-10 bg-gray-400 text-gray-300 rounded-md'>4</span>
         </div>
-        <div className='flex justify-center items-center py-5 px-10 bg-red-300 max-w-10'>Book Now</div>
+        <div className='flex justify-center '>
+       <Link to="/orderpage"> <div className='py-4 px-14 bg-red-300 rounded-xl text-gray-600 font-semibold'>Book Now</div></Link>
+        </div>
     </div>
     </main>
-    <footer className='flex flex-col gap-12 px-32 py-12'>
-    <div className='flex justify-between'>
-        <div className='flex flex-col gap-7'>
-        <img className='w-40' src={logo} alt="" />
-        <div>Stop waiting in line. Buy tickets
-        conveniently, watch movies quietly.</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Explore</div>
-        <div>Cinemas</div>
-        <div>Movies List</div>
-        <div>Notification</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Our Sponsor</div>
-        <img className='w-32' src={edu} alt="" />
-        <img className='w-44' src={cine} alt="" />
-        <img className='w-20' src={hiflix} alt="" />
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm pr-16'>
-        <div className='text-base font-bold'>Follow us</div>
-        <div className='flex gap-4'>
-            <img src={fb} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={ig} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={twit} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={yt} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        </div>
-    </div>
-    <div className='text-center'>© 2020 Tickitz. All Rights Reserved.</div>
-    </footer>
+    <Footer/>
     </>
 )
 }

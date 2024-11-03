@@ -1,31 +1,12 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
-import {Link} from 'react-router-dom'
-import profile from '../assets/profileimg.png'
 import graph from '../assets/graph.svg'
-
+import NavbarAdmin from '../component/NavbarAdmin'
 
 function Admin() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
-        <li>
-        <a href="#">Dasboard</a>
-        </li>
-        <li>
-        <a href="#">Movie</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <select name="" id="">
-            <option value="">Location</option>
-        </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
-    </div>
-    </nav>
+<NavbarAdmin/>
     <main className='pt-14 px-20 pb-24 flex flex-col gap-8 justify-center items-center bg-gray-300'>
     <div className='bg-white pt-10 pl-14 pb-20 pr-24 rounded-xl gap-5 flex flex-col'>
         <span className='text-2xl font-bold'>Sales Chart</span>

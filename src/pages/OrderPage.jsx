@@ -1,49 +1,37 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
-import edu from '../assets/ebv.svg'
 import cine from '../assets/Cine.svg'
-import hiflix from '../assets/hiflix.svg'
-import fb from '../assets/facebook.svg'
-import ig from '../assets/instagram.svg'
-import twit from '../assets/twitter.svg'
-import yt from '../assets/youtube.svg'
+import { IoCheckmark } from "react-icons/io5";
 import {Link} from 'react-router-dom'
 import Spider from '../assets/spider.svg'
+import NavbarHome from '../component/NavbarHome'
+import Footer from '../component/Footer'
 
 function OrderPage() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
-        <li>
-        <a href="#">Home</a>
-        </li>
-        <li>
-        <a href="#">Movie</a>
-        </li>
-        <li>
-        <a href="#">Buy Ticket</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <Link to="/register" className='border-red-700 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
-        <Link to="/login" className='border-red-700 border rounded-2xl px-4 py-3 bg-red-600 text-white'>Signin</Link>
-    </div>
-    </nav>
+    <NavbarHome/>
     <main className='px-32 pt-8 pb-32 gap-8 flex flex-col justify-center items-center bg-gray-300'>
-        <div className='flex items-center gap-6'>
-            <div className='bg-blue-300 aspect-square rounded-full w-12 flex justify-center items-center'>1</div>
+        <div className='flex items-center gap-4'>
+            <div className='flex flex-col justify-center items-center gap-3'>
+            <div className='bg-green-800 aspect-square rounded-full w-14 text-white flex justify-center items-center'><IoCheckmark className='h-7 w-7'/></div>
+            <div>Dates And Time</div>
+            </div>
             <div className='border-t-2 border-dashed border-black w-16'></div>
-            <div className='bg-blue-300 aspect-square rounded-full w-12 flex justify-center items-center'>2</div>
+            <div className='flex flex-col justify-center items-center gap-3'>
+            <div className='bg-orange-400 aspect-square rounded-full w-14 text-white flex justify-center items-center'>2</div>
+            <div>Seat</div>
+            </div>
             <div className='border-t-2 border-dashed border-black w-16'></div>
-            <div className='bg-blue-300 aspect-square rounded-full w-12 flex justify-center items-center'>3</div>
+            <div className='flex flex-col justify-center items-center gap-3'>
+            <div className='bg-gray-500 aspect-square rounded-full w-14 text-white flex justify-center items-center'>3</div>
+            <div>Payment</div>
+            </div>
         </div>
         <div className='flex gap-4'>
             <div className='flex flex-col px-6 pb-16 pt-10 bg-white rounded-md gap-8'>
                 <div className='flex border-gray-400 border py-3.5 px-6 gap-3.5'>
-                    <div className='bg-red-900 overflow-hidden w-48 h-28 rounded'>
+                    <div className='overflow-hidden w-48 h-28 rounded'>
                         <img src={Spider} alt="" />
                     </div>
                     <div className='flex flex-col gap-3.5'>
@@ -165,9 +153,9 @@ return (
                             <button></button>
                             <button className='w-7 aspect-square bg-gray-200 rounded'></button>
                             <button className='w-7 aspect-square bg-gray-200 rounded'></button>
-                            <button className='w-7 aspect-square bg-pink-300 rounded'></button>
-                            <button className='w-7 aspect-square bg-pink-300 rounded'></button>
+                            <button className='w-16 h-7 bg-pink-300 col-span-2 rounded'></button>
                             <button className='w-7 aspect-square bg-gray-200 rounded'></button>
+                            {/* <button className='w-7 aspect-square bg-gray-200 rounded'></button> */}
                             <button className='w-7 aspect-square bg-gray-700 rounded'></button>
                             <button className='w-7 aspect-square bg-gray-200 rounded'></button>
                             <button></button>
@@ -246,51 +234,11 @@ return (
                         <div>$30</div>
                     </div>
                 </div>
-                <div className='w-96 h-14 rounded-lg bg-blue-600 flex justify-center items-center text-white'>Checkout now</div>
+            <Link to="/payment"> <div className='w-96 h-14 rounded-lg bg-orange-600 flex justify-center items-center text-white'>Checkout now</div></Link>
             </div>
         </div>
     </main>
-    <footer className='flex flex-col gap-12 px-32 py-12'>
-    <div className='flex justify-between'>
-        <div className='flex flex-col gap-7'>
-        <img className='w-40' src={logo} alt="" />
-        <div>Stop waiting in line. Buy tickets
-        conveniently, watch movies quietly.</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Explore</div>
-        <div>Cinemas</div>
-        <div>Movies List</div>
-        <div>Notification</div>
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm'>
-        <div className='text-base font-bold'>Our Sponsor</div>
-        <img className='w-32' src={edu} alt="" />
-        <img className='w-44' src={cine} alt="" />
-        <img className='w-20' src={hiflix} alt="" />
-        </div>
-        <div className='flex flex-col gap-3.5 text-sm pr-16'>
-        <div className='text-base font-bold'>Follow us</div>
-        <div className='flex gap-4'>
-            <img src={fb} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={ig} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={twit} alt="" />
-            <span>tickitz.id</span>
-        </div>
-        <div className='flex gap-4'>
-            <img src={yt} alt="" />
-            <span>Tickitz Cinema id</span>
-        </div>
-        </div>
-    </div>
-    <div className='text-center'>© 2020 Tickitz. All Rights Reserved.</div>
-    </footer>
+    <Footer/>
     </>
 )
 }
