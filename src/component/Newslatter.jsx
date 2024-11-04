@@ -12,7 +12,7 @@ return (
             <label htmlFor=""></label>
             <input  className='py-4 px-5 outline-none rounded bg-transparent border-white border placeholder-white text-white' type="email" id='email' name='email' placeholder='Email address'/>
             <button className='py-4 px-11 bg-white rounded-lg text-orange-700' >Click Me</button>
-            <img className='absolute right-[-500px] bottom-[-80px]' src={shape} alt="" />
+            <img className='absolute right-[-150px] bottom-[-80px] md:right-[-310px] md:bottom-[-80px]' src={shape} alt="" />
         </form>
     </div> 
 </div>
