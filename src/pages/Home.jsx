@@ -23,7 +23,7 @@ return (
     <main className='max-w-xl md:max-w-none md:px-32 py-12 flex flex-col gap-12'>
     <div className='flex flex-col md:flex-row  items-center text-center md:text-left md:justify-between gap-5 md:gap-0'>
         <div className='flex gap-3 flex-col'>
-        <div className='text-lg text-blue-700 font-bold'>MOVIE TICKET PURCHASES #1 IN INDONESIA</div>
+        <div className='text-lg text-orang-600 font-bold'>MOVIE TICKET PURCHASES #1 IN INDONESIA</div>
         <div className='text-5xl font-medium max-w-xl'>Experience the Magic of Cinema: Book Your Tickets Today</div>
         <div className='font-normal text-base text-gray-500'>Sign up and get the ticket with a lot of discount</div>
         </div>
@@ -64,7 +64,7 @@ return (
         </div>
     </div>
     <div className='flex flex-col text-center gap-8'>
-        <div className='text-lg text-blue-600 font-bold'>MOVIES</div>
+        <div className='text-lg text-orange-600 font-bold'>MOVIES</div>
         <div className='text-3xl'>Exciting Movies That Should Be Watched Today</div>
     <div className='flex gap-6 flex-shrink-0 overflow-x-scroll justify-between'>
         <MovieCard/>
@@ -76,12 +76,12 @@ return (
         <MovieCard/>
         
     </div>
-    <Link to="/homepage"> <div className='text-blue-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
+    <Link to="/homepage"> <div className='text-orange-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
     </div>
     <div className='flex flex-col gap-7'>
         <div className='flex items-center justify-between'>
         <div className='flex flex-col gap-3.5'>
-            <div className='text-lg font-bold text-blue-700'>UPCOMING MOVIES</div>
+            <div className='text-lg font-bold text-orange-700'>UPCOMING MOVIES</div>
             <div className='text-3xl font-normal'>Exciting Movie Coming Soon</div>
         </div>
         <div className='flex gap-2'>

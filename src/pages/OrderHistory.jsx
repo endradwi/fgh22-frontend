@@ -61,7 +61,7 @@ return (
                 <div className='text-orange-500'>$30</div>
             </div>
             <p className='max-w-2xl'>Pay this payment bill before it is due,on<span className='text-red-600'>  June 23, 2023.</span> If the bill has not been paid by the specified time, it will be forfeited</p>
-            <button className='flex justify-start py-3 px-9 bg-orange-400 hover:bg-orange-600 text-white rounded-md max-w-48'>Cek Pembayaran</button>
+        <Link to="/admin">  <button className='flex justify-start py-3 px-9 bg-orange-400 hover:bg-orange-600 text-white rounded-md max-w-48'>Cek Pembayaran</button> </Link>
         </div>
                 )}
             </div>
