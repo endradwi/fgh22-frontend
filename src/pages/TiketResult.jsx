@@ -1,16 +1,10 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
-import edu from '../assets/ebv.svg'
-import cine from '../assets/Cine.svg'
-import hiflix from '../assets/hiflix.svg'
-import fb from '../assets/facebook.svg'
-import ig from '../assets/instagram.svg'
-import twit from '../assets/twitter.svg'
-import yt from '../assets/youtube.svg'
+import logo from '../assets/imagelogo.png'
 import {Link} from 'react-router-dom'
 import qr from '../assets/qr.svg'
 import NavbarHome from '../component/NavbarHome'
 import Footer from '../component/Footer'
+import { GoArrowDown } from "react-icons/go";
 
 
 function TiketResult() {
@@ -18,13 +12,15 @@ function TiketResult() {
 return (
     <>
     <NavbarHome/>
-    <main className=' gap-8 flex justify-center items-center bg-gray-300'>
+    <main className=' gap-8 flex md:flex-row flex-col justify-center items-center bg-gray-300'>
     <div className='flex-1 bg-[url(./assets/bg.svg)] max-w-4xl  h-[850px] overflow-hidden relative'>
     <div className='w-screen max-w-4xl h-[850px] absolute bg-black opacity-50 flex items-center justify-center'></div>
-    <div className='w-screen h-screen text-white flex flex-col px-12 py-96 relative gap-6 max-w-2xl'>
+    <div className='w-screen h-screen text-white items-center md:items-start flex flex-col px-12 py-28 md:py-96 relative gap-6'>
+        <img className='w-48 h-36 block md:hidden' src={logo} alt="" />
         <div className='text-5xl font-bold'>Thankyou For Purchasing</div>
         <div className='text-2xl'>Lorem ipsum dolor sit amet consectetur. Quam pretium pretium tempor integer sed magna et.</div>
         <div className='text-lg font-bold'>Please Download Your Ticket</div>
+        <GoArrowDown  className='text-6xl block md:hidden'/>
     </div>
     </div>
     <div className='flex-1'>

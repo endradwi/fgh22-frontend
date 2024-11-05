@@ -19,7 +19,6 @@ return (
     <>
     <NavbarHome/>
     <main className='px-32 pt-8 pb-32 gap-8 flex flex-col justify-center items-center bg-gray-300'>
-    
     <div className='flex items-center gap-4'>
             <div className='flex flex-col justify-center items-center gap-3'>
             <div className='bg-green-800 aspect-square rounded-full w-14 text-white flex justify-center items-center'><IoCheckmark className='h-7 w-7'/></div>
@@ -42,41 +41,41 @@ return (
                 <form className='flex flex-col gap-8'>
                     <label htmlFor="">DATE & TIME</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-screen max-w-2xl outline-none pb-2' type="text" placeholder='Tuesday, 07 July 2020 at 02:00pm' />
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='Tuesday, 07 July 2020 at 02:00pm' />
                     </div>
                     <label htmlFor="">MOVIE TITLE</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-screen max-w-2xl outline-none pb-2' type="text" placeholder='Spider-Man: Homecoming'/>
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='Spider-Man: Homecoming'/>
                     </div>
                     <label htmlFor="">CINEMA NAME</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-screen max-w-2xl outline-none pb-2' type="text" placeholder='CineOne21 Cinema' />
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='CineOne21 Cinema' />
                     </div>
                     <label htmlFor="">NUMBER OF TICKETS</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-screen max-w-2xl outline-none pb-2' type="text" placeholder='3 pieces'/>
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='3 pieces'/>
                     </div>
                     <label htmlFor="">TOTAL PAYMENT</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-screen max-w-2xl outline-none pb-2' type="text" placeholder='$30,00'/>
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='$30,00'/>
                     </div>
                     <span>Personal Information</span>
                     <label htmlFor="">Full Name</label>
                     <div>
-                        <input className='border border-gray-300 w-screen max-w-2xl outline-none py-5 pl-11' type="text" placeholder='Jonas El Rodriguez' />
+                        <input className='border border-gray-300 w-96 md:w-screen max-w-2xl outline-none py-5 pl-11' type="text" placeholder='Jonas El Rodriguez' />
                     </div>
                     <label htmlFor="">Email</label>
                     <div>
-                        <input className='border border-gray-300 w-screen max-w-2xl outline-none py-5 pl-11' type="email" placeholder='jonasrodri123@gmail.com'/>
+                        <input className='border border-gray-300 w-96 md:w-screen max-w-2xl outline-none py-5 pl-11' type="email" placeholder='jonasrodri123@gmail.com'/>
                     </div>
                     <label htmlFor="">Phone Number</label>
-                    <div className='border border-gray-300 w-screen max-w-2xl outline-none py-5 pl-11 flex gap-6'>
+                    <div className='border border-gray-300 w-96 md:w-screen max-w-2xl outline-none py-5 pl-11 flex gap-6'>
                         <span className='border-r-2 border-gray-300 pr-5 text-gray-400'>+62</span>
                         <input type="tel" placeholder='81445687121'/>
                     </div>
                 </form>
                 <span>Payment Method</span>
-                <div className='grid grid-cols-4 gap-5'>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-5'>
                     <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
                         <img src={gpay} alt="" />
                     </div>

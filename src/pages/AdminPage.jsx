@@ -7,6 +7,7 @@ import image from '../assets/image1.jpg'
 import { FaEye } from "react-icons/fa";
 import { FaPen } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa6";
 
 
 function AdminPage() {
@@ -31,21 +32,29 @@ return (
     </div>
     </nav>
     <main className='pt-14 px-20 pb-24 flex justify-center bg-gray-300'>
-    <div className='bg-white flex flex-col gap-10 pt-7 pr-9 pb-10 pl-14'>
-        <div className='flex justify-between'>
+    <div className='bg-white flex flex-col rounded-2xl gap-10 pt-7 pr-9 pb-10 pl-14 w-full'>
+        <div className='flex justify-between items-center'>
             <span className='text-2xl font-bold'>List Movie</span>
             <form className='flex gap-3.5'>
                 <label htmlFor=""/>
-                <div className='bg-gray-300 rounded-xl py-3.5 px-5 flex items-center gap-10'>
+                <div className='bg-gray-300 rounded-xl py-3.5 px-5 md:flex items-center gap-10 hidden'>
                 <FiCalendar className='text-gray-600' />
-                <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none'>
+                <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none '>
                     <option value="">November 2023</option>
                 </select>
                 </div>
-               <Link to="/addmovie" className='h-14 w-36 bg-orange-600 text-white rounded-xl flex justify-center items-center'>Add Movies</Link>
+               <Link to="/addmovie" className='h-14 w-36 bg-orange-600 text-white rounded-xl flex justify-center items-center'><FaPlus className='block md:hidden text-2xl mr-5'/>Add Movies</Link>
             </form>
+            
+            </div>
+            <div className='bg-gray-300 rounded-xl py-3.5 px-5 flex items-center gap-10 md:hidden'>
+                <FiCalendar className='text-gray-600' />
+                <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none '>
+                    <option value="">November 2023</option>
+                </select>
         </div>
-        <table className='text-center '>
+        <div className='w-full overflow-x-scroll'>
+        <table className='text-center w-full '>
             <thead>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>No</td>
@@ -138,6 +147,7 @@ return (
                 </tr>
             </tbody>
         </table>
+        </div>
         <div className='flex justify-center gap-2'>
             <button className='text-gray-600 bg-orange-600 rounded-lg flex justify-center items-center py-1 px-3.5'>1</button>
             <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>2</button>

@@ -48,18 +48,18 @@ return (
                     <input className='border border-gray-200 rounded-md py-6 pl-9  pr-80 box-border outline-none' type="text" placeholder='Action, Adventure, Sci-Fi'/>
                 </div>
                 </div>
-                <div className="flex gap-3">
-                    <div>
+                <div className="flex md:flex-row flex-col gap-3 w-full">
+                    <div className='w-full md:w-64'>
                     <label htmlFor="">Release date</label>
-                    <div className='w-64'>
-                    <input className='border border-gray-200 rounded-md py-6 pl-9 box-border outline-none' type="text" placeholder='07/05/2020'/>
+                    <div className='md:w-64 w-full'>
+                    <input className='border border-gray-200 rounded-md py-6 pl-9 box-border outline-none w-full' type="text" placeholder='07/05/2020'/>
                     </div>
                     </div>
                     <div>
                     <label htmlFor="">Duration (hour / minute)</label>
-                    <div className='w-32 flex gap-6'>
-                    <input className='border border-gray-200 w-28 rounded-md py-6 px-12 box-border outline-none' type="text" placeholder='2'/>
-                    <input className='border border-gray-200 w-32 rounded-md py-6 px-12 box-border outline-none' type="text" placeholder='13'/>
+                    <div className='w-full md:w-32 md:flex-row flex-col flex gap-6'>
+                    <input className='border border-gray-200 w-full md:w-28 rounded-md py-6 px-12 box-border outline-none' type="text" placeholder='2'/>
+                    <input className='border border-gray-200 w-full md:w-32 rounded-md py-6 px-12 box-border outline-none' type="text" placeholder='13'/>
                     </div>
                     </div>
                 </div>
