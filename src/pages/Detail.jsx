@@ -3,17 +3,16 @@ import edu from '../assets/ebv.svg'
 import cine from '../assets/Cine.svg'
 import hiflix from '../assets/hiflix.svg'
 import { IoIosArrowUp } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
 import {Link} from 'react-router-dom'
 import Spider from '../assets/spider.svg'
-import NavbarHome from '../component/NavbarHome'
+import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 
 function Detail() {
 
 return (
     <>
-    <NavbarHome/>
+    <Navbar name="navbarhome" />
     <div className='flex bg-[url(./assets/spiderman.svg)] bg-cover bg-center py-36 px-6 md:px-32 relative '>
         <div className='flex md:flex-row flex-col absolute gap-4 w-full max-w-[630px] md:max-w-5xl'>
             <img src={Spider} alt="" />

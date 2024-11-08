@@ -1,30 +1,13 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
 import {Link} from 'react-router-dom'
-import profile from '../assets/profileimg.png'
+import Navbar from '../component/Navbar'
 
 
 function AddMovie() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <div><img src={logo} alt="viteLogo" /></div>
-    <ul className='flex gap-14'>
-        <li>
-        <a href="#">Dasboard</a>
-        </li>
-        <li>
-        <a href="#">Movie</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <select name="" id="">
-            <option value="">Location</option>
-        </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
-    </div>
-    </nav>
+    <Navbar name="navbaradmin" />
     <main className='pt-14 px-20 pb-24 flex justify-center bg-gray-300'>
         <div className='bg-white rounded-xl pl-9 pt-12 pr-14 pb-11 flex flex-col gap-7'>
             <span className='text-2xl font-bold'>Add New Movie</span>

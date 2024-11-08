@@ -14,6 +14,8 @@ import OrderHistoy from './pages/OrderHistory.jsx';
 import Admin from './pages/Admin.jsx';
 import AdminPage from './pages/AdminPage.jsx';
 import AddMovie from './pages/AddMovie.jsx';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const router = createBrowserRouter([
   {
@@ -76,9 +78,9 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <>
+    <Provider store={store}>
     <RouterProvider router={router} />;
-    </>
+    </Provider>
   )
 }
 

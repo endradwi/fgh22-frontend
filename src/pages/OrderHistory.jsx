@@ -3,7 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import {Link} from 'react-router-dom'
 import cine from '../assets/Cine.svg'
 import qr from '../assets/qr.svg'
-import NavbarProfile from '../component/NavbarProfile'
+import Navbar from '../component/Navbar'
 import { IoIosArrowUp } from "react-icons/io";
 import CardProfile from '../component/CardProfile';
 
@@ -13,7 +13,7 @@ function Profile() {
     const [isDown, Setdown] = React.useState(false)
 return (
     <>
-<NavbarProfile/>
+<Navbar name="navbaradmin" />
 <div className='bg-white pt-6 flex gap-14 md:hidden justify-center rounded-lg'>
     <Link to='/profile'>Account Settings</Link>
     <div className='border-b-orange-500 border-b-2 pb-6'>Order History</div>

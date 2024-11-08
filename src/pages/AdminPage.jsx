@@ -1,36 +1,19 @@
 import React from 'react'
-import logo from '../assets/imagelogo.png'
 import {Link} from 'react-router-dom'
-import profile from '../assets/profileimg.png'
 import { FiCalendar } from "react-icons/fi";
 import image from '../assets/image1.jpg'
 import { FaEye } from "react-icons/fa";
 import { FaPen } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
+import Navbar from '../component/Navbar';
 
 
 function AdminPage() {
 
 return (
     <>
-    <nav className='px-32 py-7 flex justify-between shadow items-center text-sm'>
-    <img className='h-16 w-20' src={logo} alt="viteLogo" />
-    <ul className='flex gap-14 text-xl'>
-        <li>
-        <a href="#">Dasboard</a>
-        </li>
-        <li>
-        <a href="#" className='text-orange-600'>Movie</a>
-        </li>
-    </ul>
-    <div className='flex gap-3'>
-        <select name="" id="">
-            <option value="">Location</option>
-        </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
-    </div>
-    </nav>
+    <Navbar name="navbaradmin" />
     <main className='pt-14 px-20 pb-24 flex justify-center bg-gray-300'>
     <div className='bg-white flex flex-col rounded-2xl gap-10 pt-7 pr-9 pb-10 pl-14 w-full'>
         <div className='flex justify-between items-center'>

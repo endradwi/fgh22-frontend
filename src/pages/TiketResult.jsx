@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../assets/imagelogo.png'
 import {Link} from 'react-router-dom'
 import qr from '../assets/qr.svg'
-import NavbarHome from '../component/NavbarHome'
+import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import { GoArrowDown } from "react-icons/go";
 
@@ -11,7 +11,7 @@ function TiketResult() {
 
 return (
     <>
-    <NavbarHome/>
+    <Navbar name="navbarhome" />
     <main className=' gap-8 flex md:flex-row flex-col justify-center items-center bg-gray-300'>
     <div className='flex-1 bg-[url(./assets/bg.svg)] max-w-4xl  h-[850px] overflow-hidden relative'>
     <div className='w-screen max-w-4xl h-[850px] absolute bg-black opacity-50 flex items-center justify-center'></div>

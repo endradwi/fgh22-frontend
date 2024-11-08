@@ -3,8 +3,23 @@ import logo from '../assets/imagelogo.png'
 import { FaEye } from "react-icons/fa";
 import {Link} from 'react-router-dom'
 import BtnLgn from '../component/BtnLgn';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const loginFormSchema = yup.object({
+    email: yup.string().email('Email Invalid').min(8, 'Your email must be 8 character on length').required('Email is required'),
+    password: yup.string().min(8, 'Your email must be 8 character on length')
+    .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')
+    .required('Email is required')
+})
 
 function Register() {
+    const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver(loginFormSchema)})
+    const onSubmit = (value)=>{
+    }
 
 return (
     <>
@@ -29,15 +44,27 @@ return (
             <div className='text-lg text-gray-400'>Done</div>
             </div>
             </div>
-            <form className='flex flex-col gap-6'>
+            <form className='flex flex-col gap-6' onSubmit={handleSubmit(onSubmit)}>
             <label className='text-xl' htmlFor="email">Email</label>
             <div className='w-full'>
-            <input className='outline-none w-full text-gray-700 border-gray-400 border box-border rounded py-5 pl-6 pr-56' type="email" id='email' name='email' placeholder='Enter your email' />
+            <input className={'outline-none w-full text-gray-700 border-gray-400 border box-border rounded py-5 pl-6 pr-56' + 
+            (errors.email?.message ? ' border-red-600 placeholder:text-red-400':'')} 
+            type="email" id='email' {...register('email')} placeholder='Enter your email' />
+            </div>
+            <div>
+                {errors.email?.message && 
+                <span className='text-red-600'>{errors.email?.message}</span>}
             </div>
             <label className='text-xl' htmlFor="password">Password</label>
             <div className='flex justify-between items-center border-gray-400 border w-full rounded pr-5'>
-            <input className='outline-none text-gray-700 w-full box-border py-5 pl-6 ' type="text" id='password' name='password' placeholder='Enter your password' />
+            <input className={'outline-none text-gray-700 w-full box-border py-5 pl-6 ' + 
+            (errors.password?.message ? ' border-red-600 placeholder:text-red-400':'')} 
+            type="text" id='password' {...register('password', {required:true})} placeholder='Enter your password' />
             <FaEye className='h-7 w-7 text-gray-400'/>
+            </div>
+            <div>
+                {errors.password?.message && 
+                <span>{errors.password?.message}</span>}
             </div>
             <div className='flex gap-2'>
             <input type="checkbox" id='agree' name='agree'/>

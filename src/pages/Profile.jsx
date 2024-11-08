@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import NavbarProfile from '../component/NavbarProfile'
+import Navbar from '../component/Navbar'
 import { FaEye } from "react-icons/fa";
 import CardProfile from '../component/CardProfile';
 
@@ -9,7 +9,7 @@ function Profile() {
 
 return (
     <>
-    <NavbarProfile/>
+    <Navbar name="navbarprofile" />
     <div className='bg-white pt-6 flex md:hidden justify-center gap-14  rounded-lg'>
         <div className='border-b-orange-500 border-b-2 pb-6'>Account Settings</div>
         <Link to="/orderhistory">Order History</Link>

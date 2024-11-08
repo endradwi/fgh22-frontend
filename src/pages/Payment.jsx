@@ -8,7 +8,7 @@ import bri from '../assets/bri.svg'
 import ovo from '../assets/ovo.svg'
 import visa from '../assets/visa.svg'
 import paypal from '../assets/paypal.svg'
-import NavbarHome from '../component/NavbarHome'
+import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import { IoCheckmark } from "react-icons/io5";
 import { IoCloseCircle } from "react-icons/io5";
@@ -17,7 +17,7 @@ function OrderPage() {
     const [isShow, Setshow] = React.useState(false)
 return (
     <>
-    <NavbarHome/>
+    <Navbar name="navbarhome" />
     <main className='px-32 pt-8 pb-32 gap-8 flex flex-col justify-center items-center bg-gray-300'>
     <div className='flex items-center gap-4'>
             <div className='flex flex-col justify-center items-center gap-3'>

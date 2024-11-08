@@ -9,8 +9,7 @@ import { TbCircleCheckFilled } from "react-icons/tb";
 import { HiChatAlt2 } from "react-icons/hi";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { IoMdArrowRoundForward } from "react-icons/io";
-
-import NavbarHome from '../component/NavbarHome'
+import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import Newslatter from '../component/Newslatter'
 import MovieCard from '../component/MovieCard'
@@ -19,7 +18,7 @@ function Home() {
 
 return (
     <>
-    <NavbarHome />
+    <Navbar tittle = 'navbarhome' />
     <main className='max-w-xl md:max-w-none md:px-32 py-12 flex flex-col gap-12'>
     <div className='flex flex-col md:flex-row  items-center text-center md:text-left md:justify-between gap-5 md:gap-0'>
         <div className='flex gap-3 flex-col'>
@@ -68,11 +67,11 @@ return (
         <div className='text-3xl'>Exciting Movies That Should Be Watched Today</div>
     <div className='flex gap-6 flex-shrink-0 overflow-x-scroll justify-between'>
         <MovieCard item = 'image1' tittle='Agak Laen' genre1="Action" genre2="Adventure"/>
-        <MovieCard item='image2' tittle='Bucin'genre1="Comedy" genre2="Sci-Fi"/>
+        {/* <MovieCard item='image2' tittle='Bucin'genre1="Comedy" genre2="Sci-Fi"/>
         <MovieCard item = 'image3' tittle='Mariposa' genre1="SC-Fi" genre2="Comedy"/>
         <MovieCard item='image4' tittle='Terminator Genesis'genre1="Action" genre2="Adventure"/>
         <MovieCard item = 'image5' tittle='Warkop DKI Reborn' genre1="Action" genre2="Comedy"/>
-        <MovieCard item='image1' tittle='Agak Laen'genre1="Comedy" genre2="Sci-Fi"/>
+        <MovieCard item='image1' tittle='Agak Laen'genre1="Comedy" genre2="Sci-Fi"/> */}
     </div>
     <Link to="/homepage"> <div className='text-orange-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
     </div>
@@ -93,11 +92,11 @@ return (
         </div>
         <div className='flex gap-6 flex-shrink-0 justify-between overflow-x-scroll'>
             <MovieCard item = 'image1' tittle='Agak Laen' genre1="Action" genre2="Adventure" date="1 Februari 2024"/>
-            <MovieCard item='image2' tittle='Bucin'genre1="Comedy" genre2="Sci-Fi" date="20 Maret 2020"/>
+            {/* <MovieCard item='image2' tittle='Bucin'genre1="Comedy" genre2="Sci-Fi" date="20 Maret 2020"/>
             <MovieCard item = 'image3' tittle='Mariposa' genre1="SC-Fi" genre2="Comedy" date='12 Maret 2020'/>
             <MovieCard item='image4' tittle='Terminator Genesis'genre1="Action" genre2="Adventure" date='12 Maret 2020'/>
             <MovieCard item = 'image5' tittle='Warkop DKI Reborn' genre1="Action" genre2="Comedy" date='Comming Soon'/>
-            <MovieCard item='image1' tittle='Agak Laen'genre1="Comedy" genre2="Sci-Fi" date="1 Februari 2024" />
+            <MovieCard item='image1' tittle='Agak Laen'genre1="Comedy" genre2="Sci-Fi" date="1 Februari 2024" /> */}
         </div>
     </div>
     <Newslatter />

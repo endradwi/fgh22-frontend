@@ -1,8 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import NavbarHome from '../component/NavbarHome'
+import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
-import image1 from '../assets/movie1.webp'
 import { IoIosSearch } from "react-icons/io";
 import Newslatter from '../component/Newslatter'
 import { IoMdArrowRoundForward } from "react-icons/io";
@@ -12,7 +11,7 @@ function Home() {
 
 return (
     <>
-    <NavbarHome/>
+    <Navbar name="navbarhome" />
     <div className='bg-[url(./assets/bg.svg)] w-screen h-96 bg-cover bg-center overflow-hidden '>
     <div className='w-screen h-96 bg-cover bg-black absolute  opacity-50'></div>
         <div className='flex gap-3 flex-col relative py-36 px-32'>
@@ -43,18 +42,19 @@ return (
         </div>
     </div>
     <div className='flex flex-col gap-8'>
-    <div className='flex gap-6 flex-wrap justify-between'>
+    <div className='flex gap-6 flex-wrap overflow-x-scroll justify-between'>
         <MovieCard/>        
+    </div>
+    <div className='flex flex-row-reverse gap-6 flex-wrap overflow-x-scroll justify-between'>
         <MovieCard/>        
+    </div>
+    <div className='flex gap-6 flex-wrap overflow-x-scroll justify-between'>
         <MovieCard/>        
+    </div>
+    <div className='flex flex-row-reverse gap-6 flex-wrap overflow-x-scroll justify-between'>
         <MovieCard/>        
-        <MovieCard/>        
-        <MovieCard/>        
-        <MovieCard/>        
-        <MovieCard/>        
-        <MovieCard/>        
-        <MovieCard/>        
-        <MovieCard/>        
+    </div>
+    <div className='flex gap-6 flex-wrap overflow-x-scroll justify-between'>
         <MovieCard/>        
     </div>
         <div className='flex justify-center gap-5'>

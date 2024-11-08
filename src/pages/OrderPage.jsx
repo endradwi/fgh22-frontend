@@ -2,7 +2,7 @@ import React from 'react'
 import { IoCheckmark } from "react-icons/io5";
 import {Link} from 'react-router-dom'
 import Spider from '../assets/spider.svg'
-import NavbarHome from '../component/NavbarHome'
+import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import CardOrder from '../component/CardOrder';
 import { IoArrowDown } from "react-icons/io5";
@@ -13,7 +13,7 @@ function OrderPage() {
     const [isShow, Setshow] = React.useState(false)
 return (
     <>
-    <NavbarHome/>
+    <Navbar name="navbarhome" />
     {isShow && (
         <>
         <div className='absolute w-screen h-[2030px] opacity-80 bg-black'></div>
@@ -280,7 +280,7 @@ return (
             </div>
             <CardOrder/>
         </div>
-        <button onClick={()=>Setshow(!isShow)} className='ml-[-20px] py-4 rounded-lg text-lg font-semibold text-white px-[270px] bg-orange-500'>Submit</button>
+        <button onClick={()=>Setshow(!isShow)} className='ml-[-20px] block md:hidden py-4 rounded-lg text-lg font-semibold text-white px-[270px] bg-orange-500'>Submit</button>
     </main>
     <Footer/>
     </>
