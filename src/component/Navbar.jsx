@@ -38,7 +38,8 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div> : <div className='flex gap-3 md:flex-row flex-col items-center'>
             <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
             <Link to="/login" className='border-orange-600 border rounded-2xl px-4 py-3 bg-orange-600 text-white'>Signin</Link>
@@ -63,7 +64,7 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
         <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div> : <div className='flex gap-3 md:flex-row flex-col items-center'>
             <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
@@ -73,7 +74,7 @@ return (
             </>
         </nav>
     )}
-    {/* {Navbartop.tittle === "navbaradmin" && (
+    {Navbartop.tittle === "navbaradmin" && (
         <nav className='px-6 md:px-32 py-7  md:py-0 flex md:flex-row flex-col md:gap-0 gap-5 justify-between shadow items-center text-sm'>
         <div className='w-full md:w-max flex md:block justify-between'>
         <img className='h-16 w-20' src={logo} alt="viteLogo" />
@@ -101,9 +102,12 @@ return (
         </li>
         </ul>
     )}        
-        <div className='flex gap-3 md:flex-row flex-col items-center'>
-            <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
-            <Link to="/login" className='border-orange-600 border rounded-2xl px-4 py-3 bg-orange-600 text-white'>Signin</Link>
+        <div className='flex gap-3'>
+        <select name="" id="">
+            <option value="">Location</option>
+        </select>
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div>
             </>
         )}
@@ -132,12 +136,13 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div>
             </>
         </nav>
-    )} */}
-    {/* {Navbartop.tittle === "navbarprofile" && (
+    )}
+    {Navbartop.tittle === "navbarprofile" && (
         <nav className='px-6 md:px-32 py-7  md:py-0 flex md:flex-row flex-col md:gap-0 gap-5 justify-between shadow items-center text-sm'>
         <div className='w-full md:w-max flex md:block justify-between'>
         <img className='h-16 w-20' src={logo} alt="viteLogo" />
@@ -156,9 +161,12 @@ return (
             <a href="#">Buy Ticket</a>
             </li>
         </ul>
-        <div className='flex gap-3 md:flex-row flex-col items-center'>
-            <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
-            <Link to="/login" className='border-orange-600 border rounded-2xl px-4 py-3 bg-orange-600 text-white'>Signin</Link>
+        <div className='flex gap-3'>
+        <select name="" id="">
+            <option value="">Location</option>
+        </select>
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div>
             </>
         )}
@@ -178,11 +186,12 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <img className='w-14 h-12 rounded-full' src={profile} alt="" />
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div>
             </>
         </nav>
-    )} */}
+    )}
     </div>
 )
 }
