@@ -9,7 +9,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbaradmin" />
+    <Navbar tittle="navbaradmin" name="black" />
     <main className='pt-14 px-20 pb-24 flex justify-center bg-gray-300'>
         <div className='bg-white rounded-xl pl-9 pt-12 pr-14 pb-11 flex flex-col gap-7'>
             <span className='text-2xl font-bold'>Add New Movie</span>

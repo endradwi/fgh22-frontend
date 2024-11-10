@@ -14,7 +14,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbarhome" />
+    <Navbar tittle="navbarhome" />
     <div className='flex bg-[url(./assets/spiderman.svg)] bg-cover bg-center py-36 px-6 md:px-32 relative '>
         <div className='flex md:flex-row flex-col absolute gap-4 w-full max-w-[630px] md:max-w-5xl'>
             <img src={Spider} alt="" />

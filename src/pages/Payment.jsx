@@ -20,7 +20,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbarhome" />
+    <Navbar tittle="navbarhome" />
     <main className='px-32 pt-8 pb-32 gap-8 flex flex-col justify-center items-center bg-gray-300'>
     <div className='flex items-center gap-4'>
             <div className='flex flex-col justify-center items-center gap-3'>

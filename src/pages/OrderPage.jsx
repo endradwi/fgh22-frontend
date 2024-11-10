@@ -16,7 +16,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbarhome" />
+    <Navbar tittle="navbarhome" />
     {isShow && (
         <>
         <div className='absolute w-screen h-[2030px] opacity-80 bg-black'></div>

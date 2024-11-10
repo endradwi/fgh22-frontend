@@ -15,7 +15,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbaradmin" />
+    <Navbar tittle="navbaradmin" name='black' />
     <main className='pt-14 px-20 pb-24 flex justify-center bg-gray-300'>
     <div className='bg-white flex flex-col rounded-2xl gap-10 pt-7 pr-9 pb-10 pl-14 w-full'>
         <div className='flex justify-between items-center'>

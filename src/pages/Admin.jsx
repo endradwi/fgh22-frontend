@@ -8,7 +8,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>    
-    <Navbar name="navbaradmin" />
+    <Navbar tittle="navbaradmin" name="orange" />
     <main className='pt-14 px-20 pb-24 flex flex-col gap-8 justify-center items-center bg-gray-300'>
     <div className='bg-white pt-10 pl-14 pb-20 pr-24 rounded-xl gap-5 flex flex-col'>
         <span className='text-2xl font-bold'>Sales Chart</span>

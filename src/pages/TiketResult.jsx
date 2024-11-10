@@ -13,7 +13,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbarhome" />
+    <Navbar tittle="navbarhome" />
     <main className=' gap-8 flex md:flex-row flex-col justify-center items-center bg-gray-300'>
     <div className='flex-1 bg-[url(./assets/bg.svg)] max-w-4xl  h-[850px] overflow-hidden relative'>
     <div className='w-screen max-w-4xl h-[850px] absolute bg-black opacity-50 flex items-center justify-center'></div>

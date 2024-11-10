@@ -11,7 +11,7 @@ function Home() {
 
 return (
     <>
-    <Navbar name="navbarhome" />
+    <Navbar tittle="navbarhome" />
     <div className='bg-[url(./assets/bg.svg)] w-screen h-96 bg-cover bg-center overflow-hidden '>
     <div className='w-screen h-96 bg-cover bg-black absolute  opacity-50'></div>
         <div className='flex gap-3 flex-col relative py-36 px-32'>

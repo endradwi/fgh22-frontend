@@ -15,7 +15,8 @@ import Admin from './pages/Admin.jsx';
 import AdminPage from './pages/AdminPage.jsx';
 import AddMovie from './pages/AddMovie.jsx';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import { store, persistor } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const router = createBrowserRouter([
   {
@@ -79,7 +80,9 @@ function App() {
 
   return (
     <Provider store={store}>
-    <RouterProvider router={router} />;
+      <PersistGate persistor={persistor}>
+        <RouterProvider router={router} />;
+      </PersistGate>
     </Provider>
   )
 }

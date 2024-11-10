@@ -11,7 +11,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar name="navbarprofile" />
+    <Navbar tittle="navbarprofile" />
     <div className='bg-white pt-6 flex md:hidden justify-center gap-14  rounded-lg'>
         <div className='border-b-orange-500 border-b-2 pb-6'>Account Settings</div>
         <Link to="/orderhistory">Order History</Link>
@@ -23,12 +23,13 @@ return (
             <div className='border-b-orange-500 border-b-2 pb-6'>Account Settings</div>
             <Link to="/orderhistory">Order History</Link>
         </div>
+        <form className='flex flex-col gap-10'>
         <div className='bg-white pt-6 pb-16 flex flex-col gap-12  px-8 rounded-lg'>
             <div className='flex flex-col gap-4'>
             <span>Details Information</span>
             <hr></hr>
             </div>
-            <form className='grid grid-cols-2 gap-6'>
+                <fieldset className='grid grid-cols-2 gap-6'>
                 <div className='flex flex-col gap-3'>
                 <label htmlFor="">First Name</label>
                 <div>
@@ -54,14 +55,15 @@ return (
                     <input className=' outline-none' type="text" placeholder='81445687121'/>
                 </div>
                 </div>
-            </form>
+                </fieldset>
         </div>
         <div className='bg-white pt-6 pb-16 flex flex-col gap-12  px-8 rounded-lg'>
             <div className='flex flex-col gap-4'>
             <span>Account and Privacy</span>
             <hr />
             </div>
-            <form className='flex gap-8'>
+            
+                <fieldset className='flex gap-8'>
                 <div className='flex flex-col gap-3'>
                 <label htmlFor="">New Password</label>
                 <div className='flex py-5 w-96 border rounded-xl border-gray-300 justify-between px-7'>
@@ -76,9 +78,11 @@ return (
                     <FaEye className='h-7 w-7 text-gray-400'/>
                 </div>
                 </div>
-            </form>
+                </fieldset>
+            
         </div>
-    <Link to='/orderhistory' className='bg-orange-400 hover:bg-orange-600 text-white w-80 h-14 flex justify-center items-center rounded-xl'> Update changes</Link>
+        <Link to='/orderhistory' className='bg-orange-400 hover:bg-orange-600 text-white w-80 h-14 flex justify-center items-center rounded-xl'> Update changes</Link>
+        </form>
     </div>
     </main>
     </>
