@@ -6,7 +6,9 @@ import CardProfile from '../component/CardProfile';
 
 
 function Profile() {
-
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>
     <Navbar name="navbarprofile" />

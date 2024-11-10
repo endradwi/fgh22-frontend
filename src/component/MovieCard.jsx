@@ -9,11 +9,12 @@ import image5 from '../assets/image4.jpg'
 function MovieCard(props) {
   const [image, Setimage] = useState([])
 
-  useEffect(()=> {
+  React.useEffect(()=> {
     fetch('https://rickandmortyapi.com/api/character')
     .then(res=>res.json())
     .then(response=>(Setimage(response.results)))
   })
+  
   return (
     <div>
             <div className='flex gap-3'>

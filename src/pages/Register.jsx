@@ -6,6 +6,9 @@ import BtnLgn from '../component/BtnLgn';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { addUsers } from '../redux/reducers/users';
 
 const loginFormSchema = yup.object({
     email: yup.string().email('Email Invalid').min(8, 'Your email must be 8 character on length').required('Email is required'),
@@ -13,12 +16,21 @@ const loginFormSchema = yup.object({
     .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
         'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')
-    .required('Email is required')
+    .required('Password is required')
 })
 
 function Register() {
-    const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver(loginFormSchema)})
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {register, handleSubmit, formState:{errors}} = useForm({resolver: yupResolver(loginFormSchema)})
+    
     const onSubmit = (value)=>{
+        const email = value.email
+        const password = value.password
+        console.log(email)
+        console.log(password)
+        dispatch(addUsers(email, password))
+        navigate('/login')
     }
 
 return (
@@ -53,18 +65,28 @@ return (
             </div>
             <div>
                 {errors.email?.message && 
-                <span className='text-red-600'>{errors.email?.message}</span>}
+                (<div className='w-full max-w-md bg-red-300 pl-3'>
+                <span className=' text-red-700'>{errors.email?.message}</span>
+                </div>
+                )}
             </div>
             <label className='text-xl' htmlFor="password">Password</label>
-            <div className='flex justify-between items-center border-gray-400 border w-full rounded pr-5'>
+            <div className={'flex justify-between items-center border-gray-400 border w-full rounded pr-5 overflow-hidden'
+                + (errors.password?.message ? ' border-red-600' : '')
+            }>
             <input className={'outline-none text-gray-700 w-full box-border py-5 pl-6 ' + 
-            (errors.password?.message ? ' border-red-600 placeholder:text-red-400':'')} 
+            (errors.password?.message ? ' placeholder:text-red-400':'')} 
             type="text" id='password' {...register('password', {required:true})} placeholder='Enter your password' />
-            <FaEye className='h-7 w-7 text-gray-400'/>
+            <FaEye className={'h-7 w-7 text-gray-400'
+                + (errors.password?.message ? ' text-red-600' : '')
+            }/>
             </div>
             <div>
                 {errors.password?.message && 
-                <span>{errors.password?.message}</span>}
+                (<div className='w-full max-w-md bg-red-300 pl-3'>
+                <span className=' text-red-700'>{errors.password?.message}</span>
+                </div>
+                )}
             </div>
             <div className='flex gap-2'>
             <input type="checkbox" id='agree' name='agree'/>

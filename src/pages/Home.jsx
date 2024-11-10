@@ -15,7 +15,9 @@ import Newslatter from '../component/Newslatter'
 import MovieCard from '../component/MovieCard'
 
 function Home() {
-
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 return (
     <>
     <Navbar tittle = 'navbarhome' />

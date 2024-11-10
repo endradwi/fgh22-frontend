@@ -3,7 +3,9 @@ import graph from '../assets/graph.svg'
 import Navbar from '../component/Navbar'
 
 function Admin() {
-
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>    
     <Navbar name="navbaradmin" />

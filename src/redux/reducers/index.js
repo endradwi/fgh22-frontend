@@ -1,9 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import login from './login';
-import profile from './profile';
+import users from './users';
+// import profile from './profile';
+// import auth from './auth';
 
 const reducer = combineReducers({
-    login,
-    profile,
+    users,
+    // profile,
+    // auth,
 });
 export default reducer;

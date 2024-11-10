@@ -9,7 +9,9 @@ import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 
 function Detail() {
-
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>
     <Navbar name="navbarhome" />

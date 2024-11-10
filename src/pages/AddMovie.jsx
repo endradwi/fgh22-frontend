@@ -4,7 +4,9 @@ import Navbar from '../component/Navbar'
 
 
 function AddMovie() {
-
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>
     <Navbar name="navbaradmin" />

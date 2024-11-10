@@ -14,7 +14,10 @@ import { IoCheckmark } from "react-icons/io5";
 import { IoCloseCircle } from "react-icons/io5";
 
 function OrderPage() {
-    const [isShow, Setshow] = React.useState(false)
+const [isShow, Setshow] = React.useState(false)
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>
     <Navbar name="navbarhome" />

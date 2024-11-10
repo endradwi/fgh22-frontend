@@ -9,8 +9,11 @@ import CardProfile from '../component/CardProfile';
 
 
 function Profile() {
-    const [isShow, Setshow] = React.useState(false)
-    const [isDown, Setdown] = React.useState(false)
+const [isShow, Setshow] = React.useState(false)
+const [isDown, Setdown] = React.useState(false)
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>
 <Navbar name="navbaradmin" />

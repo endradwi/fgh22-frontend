@@ -8,7 +8,9 @@ import { GoArrowDown } from "react-icons/go";
 
 
 function TiketResult() {
-
+React.useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 return (
     <>
     <Navbar name="navbarhome" />
