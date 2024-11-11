@@ -29,16 +29,16 @@ const dispatch = useDispatch()
 const navigate = useNavigate();
 const regis = useSelector((state) => state.users.data);
 const token = useSelector((state) => state.auth.token);
-const [showAlert, Setalert] = React.useState(false)
 const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver(loginFormSchema)})
 const onSubmit = (value)=>{
     const found = regis.find(user=>user.email === value.email)
-    if(value.email !== found.email){
-        Setalert(true)
+    if(!found){
+        window.alert('You Must Register')
+        navigate('/register')
         return
     } 
     if(value.password !== found.password){
-        Setalert(true)
+        window.alert('Your Password Invalid')
         return
     }
     dispatch(authentic('login'))
@@ -68,16 +68,14 @@ return (
             <input className={'outline-none w-full text-gray-700 border-gray-400 border box-border rounded py-5 pl-6 pr-56' + 
             (errors.email?.message ? ' border-red-600 placeholder:text-red-400':'')} 
             type="email" id='email' {...register('email', {required:true})} placeholder='Enter your email' />
-            </div>
-            {Setalert && (
-                <div>
+            </div>            
+            <div>
                 {errors.email?.message && 
                 (<div className='w-full max-w-md bg-red-300 pl-3'>
                 <span className=' text-red-700'>{errors.email?.message}</span>
                 </div>
                 )}
             </div>
-            )}
             <label className='text-xl' htmlFor="password">Password</label>
             <div className='flex justify-between items-center border-gray-400 border w-full rounded pr-5'>
         <input className={'outline-none text-gray-700 w-full box-border py-5 pl-6 ' + 
@@ -86,7 +84,6 @@ return (
                 + (errors.password?.message ? ' text-red-600' : '')
             }/>
             </div>
-            {Setalert && (
             <div>
                 {errors.password?.message && 
                 (<div className='w-full max-w-md bg-red-300 pl-3'>
@@ -94,8 +91,6 @@ return (
                 </div>
             )}
             </div>
-            )}
-
             <span className='text-right text-blue-700 text-base'>Forgot your password?</span>
             <div>
             <button className='bg-orange-400 rounded-lg px-10 w-full max-w-md h-16 hover:bg-orange-700 text-white'>

@@ -9,6 +9,7 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addUsers } from '../redux/reducers/users';
+import { useSelector } from 'react-redux';
 
 const loginFormSchema = yup.object({
     email: yup.string().email('Email Invalid').min(8, 'Your email must be 8 character on length')
@@ -23,10 +24,15 @@ const loginFormSchema = yup.object({
 function Register() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [showAlert, Setalert] = React.useState(false)
     const {register, handleSubmit, formState:{errors}} = useForm({resolver: yupResolver(loginFormSchema)})
-    
+    const regis = useSelector((state) => state.users.data);
     const onSubmit = (value)=>{
+        const found = regis.find(user=>user.email === value.email)
+        if(found){
+            window.alert('Email registred')
+            return
+        }
+        window.alert('login succes')
         dispatch(addUsers(value))
         navigate('/login')
     }
@@ -61,7 +67,6 @@ return (
             (errors.email?.message ? ' border-red-600 placeholder:text-red-400':'')} 
             type="email" id='email' {...register('email')} placeholder='Enter your email' />
             </div>
-            {Setalert && (
                 <div>
                 {errors.email?.message && 
                 (<div className='w-full max-w-md bg-red-300 pl-3'>
@@ -69,7 +74,6 @@ return (
                 </div>
                 )}
             </div>
-            )}
             <label className='text-xl' htmlFor="password">Password</label>
             <div className={'flex justify-between items-center border-gray-400 border w-full rounded pr-5 overflow-hidden'
                 + (errors.password?.message ? ' border-red-600' : '')
@@ -81,8 +85,6 @@ return (
                 + (errors.password?.message ? ' text-red-600' : '')
             }/>
             </div>
-            
-            {Setalert && (
             <div>
                 {errors.password?.message && 
                 (<div className='w-full max-w-md bg-red-300 pl-3'>
@@ -90,7 +92,6 @@ return (
                 </div>
             )}
             </div>
-            )}
             <div className='flex gap-2'>
             <input type="checkbox" id='agree' name='agree'/>
             <label htmlFor="agree">I agree to terms & conditions</label>

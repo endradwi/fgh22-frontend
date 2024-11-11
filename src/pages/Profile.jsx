@@ -3,9 +3,22 @@ import {Link} from 'react-router-dom'
 import Navbar from '../component/Navbar'
 import { FaEye } from "react-icons/fa";
 import CardProfile from '../component/CardProfile';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { addProfile } from '../redux/reducers/profile';
 
 
 function Profile() {
+const dispatch = useDispatch()
+const profile = useSelector(state=>state.profile.data)
+console.log(profile)
+const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver()})
+const onsubmit = (value) =>{
+    dispatch(addProfile(value))
+}
 React.useEffect(() => {
     window.scrollTo(0, 0);
 }, []);
@@ -23,7 +36,7 @@ return (
             <div className='border-b-orange-500 border-b-2 pb-6'>Account Settings</div>
             <Link to="/orderhistory">Order History</Link>
         </div>
-        <form className='flex flex-col gap-10'>
+        <form className='flex flex-col gap-10' onSubmit={handleSubmit(onsubmit)}>
         <div className='bg-white pt-6 pb-16 flex flex-col gap-12  px-8 rounded-lg'>
             <div className='flex flex-col gap-4'>
             <span>Details Information</span>
@@ -31,28 +44,32 @@ return (
             </div>
                 <fieldset className='grid grid-cols-2 gap-6'>
                 <div className='flex flex-col gap-3'>
-                <label htmlFor="">First Name</label>
+                <label htmlFor="firstname">First Name</label>
                 <div>
-                    <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' type="text" placeholder='Jonas' />
+                    <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
+                    type="text" {...register('firstname', {required:true})} id='firstname'/>
                 </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                <label htmlFor="">Last Name</label>
+                <label htmlFor="lastname">Last Name</label>
                 <div>
-                    <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' type="text" placeholder='El Rodriguez'/>
+                    <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
+                    type="text" {...register('lastname', {required:true})} id='lastname'/>
                 </div>
                 </div>
                 <div className='flex flex-col gap-3'>
                 <label htmlFor="">E-mail</label>
                 <div>
-                    <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' type="text" placeholder='jonasrodrigu123@gmail.com'/>
+                    <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
+                    type="text" value={profile.email}/>
                 </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                <label htmlFor="">Phone Number</label>
+                <label htmlFor="phonenumber">Phone Number</label>
                 <div className='py-5 pl-6 border rounded-xl border-gray-300 flex gap-5'>
                     <span className='border-r-2 border-r-gray-300 pr-5 text-gray-300'>+62</span>
-                    <input className=' outline-none' type="text" placeholder='81445687121'/>
+                    <input className=' outline-none' type="tel"  
+                    {...register('phonenumber', {required:true})} id='phonenumber'/>
                 </div>
                 </div>
                 </fieldset>
@@ -81,7 +98,8 @@ return (
                 </fieldset>
             
         </div>
-        <Link to='/orderhistory' className='bg-orange-400 hover:bg-orange-600 text-white w-80 h-14 flex justify-center items-center rounded-xl'> Update changes</Link>
+        <button className='bg-orange-400 hover:bg-orange-600 text-white w-80 h-14 flex justify-center items-center rounded-xl'> 
+            Update changes</button>
         </form>
     </div>
     </main>
