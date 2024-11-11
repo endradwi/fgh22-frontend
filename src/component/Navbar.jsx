@@ -6,12 +6,16 @@ import profile from '../assets/profileimg.png'
 import { useSelector } from 'react-redux';
 import { logout as logoutAction } from '../redux/reducers/auth'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar(Navbartop) {
-    const [isShow, Setshow] = React.useState(false)
-    const token = useSelector((state)=>state.auth.token)
-    const dispatch = useDispatch()
-
+const [isShow, Setshow] = React.useState(false)
+// const navigate = useNavigate()
+const token = useSelector((state)=>state.auth.token)
+const dispatch = useDispatch()
+React.useEffect(() => {
+    
+}, [token]);
 return (
     <div>
     {Navbartop.tittle === "navbarhome" && (
@@ -107,7 +111,9 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
+        {token === 'login' && (
+        <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
+        )}
         </div>
             </>
         )}
@@ -137,7 +143,9 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
+        {token === 'login' && (
+        <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
+        )}
         </div>
             </>
         </nav>
@@ -166,7 +174,9 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
+        {token === 'login' && (
+        <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
+        )}
         </div>
             </>
         )}
@@ -187,7 +197,9 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
+        {token === 'login' && (
+           <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
+        )}
         </div>
             </>
         </nav>

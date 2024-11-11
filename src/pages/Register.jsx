@@ -32,7 +32,7 @@ function Register() {
             window.alert('Email registred')
             return
         }
-        window.alert('login succes')
+        window.alert('Register Done')
         dispatch(addUsers(value))
         navigate('/login')
     }
