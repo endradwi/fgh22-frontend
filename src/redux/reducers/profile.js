@@ -8,6 +8,9 @@ initialState,
 reducers: {
     addProfile: (state, action) => {
         state.data = action.payload
+        if(state.data !== ''){
+            state.data = [...state.data, action.payload]
+        }
     },
 },
 });
