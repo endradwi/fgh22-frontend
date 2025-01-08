@@ -31,18 +31,32 @@ const regis = useSelector((state) => state.users.data);
 const token = useSelector((state) => state.auth.token);
 const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver(loginFormSchema)})
 const onSubmit = (value)=>{
-    const found = regis.find(user=>user.email === value.email)
-    if(!found){
-        window.alert('You Must Register')
-        navigate('/register')
-        return
-    } 
-    if(value.password !== found.password){
-        window.alert('Your Password Invalid')
-        return
-    }
-    dispatch(authentic('login'))
-    dispatch(addProfile(value))
+    const newData = new URLSearchParams(value)
+    const nq = newData.toString()
+    console.log(nq)
+    fetch("http://localhost:8888/auth/login", {
+        method : "POST",
+        body :nq,
+        headers : {
+            'Content-Type' : 'application/x-www-form-urlencoded'
+        }
+    })
+    .then(res => res.json())
+    .then(response => {
+        const found = regis.find(user=>user.email === value.email)
+        if(!found){
+            window.alert('You Must Register')
+            navigate('/register')
+            return
+        } 
+        if(value.password !== found.password){
+            window.alert('Your Password Invalid')
+            return
+        }
+        dispatch(authentic('login'))
+        dispatch(addProfile(value))
+    })
+    
     
 }
 React.useEffect(() => {

@@ -27,12 +27,36 @@ function Register() {
     const {register, handleSubmit, formState:{errors}} = useForm({resolver: yupResolver(loginFormSchema)})
     const regis = useSelector((state) => state.users.data);
     const onSubmit = (value)=>{
+        const newData = new URLSearchParams(value)
+        const nq = newData.toString()
+        console.log(nq)
+        fetch("http://localhost:8888/auth/register", {
+            method : "POST",
+            body :nq,
+            headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded'
+            }
+        })
+        // .then(res=>res.json())
+        // .then(response => {
+        // const found = regis.find(user=>user.email === value.email)
+        // if(found){
+        //     window.alert('Email registred')
+        //     return
+        // }
+        // window.alert('Register Done')
+
+        // dispatch(addUsers(value))
+        // navigate('/login')
+        // })
+        console.log(value)
         const found = regis.find(user=>user.email === value.email)
         if(found){
             window.alert('Email registred')
             return
         }
         window.alert('Register Done')
+
         dispatch(addUsers(value))
         navigate('/login')
     }
