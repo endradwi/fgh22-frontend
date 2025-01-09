@@ -27,13 +27,12 @@ const loginFormSchema = yup.object({
 function Login() {
 const dispatch = useDispatch()
 const navigate = useNavigate();
-const regis = useSelector((state) => state.users.data);
+// const regis = useSelector((state) => state.users.data);
 const token = useSelector((state) => state.auth.token);
 const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver(loginFormSchema)})
 const onSubmit = (value)=>{
     const newData = new URLSearchParams(value)
     const nq = newData.toString()
-    console.log(nq)
     fetch("http://localhost:8888/auth/login", {
         method : "POST",
         body :nq,
@@ -43,18 +42,18 @@ const onSubmit = (value)=>{
     })
     .then(res => res.json())
     .then(response => {
-        const found = regis.find(user=>user.email === value.email)
-        if(!found){
-            window.alert('You Must Register')
-            navigate('/register')
-            return
-        } 
-        if(value.password !== found.password){
-            window.alert('Your Password Invalid')
-            return
-        }
-        dispatch(authentic('login'))
-        dispatch(addProfile(value))
+        dispatch(authentic(response.results))
+        // const found = regis.find(user=>user.email === value.email)
+        // if(!found){
+        //     window.alert('You Must Register')
+        //     navigate('/register')
+        //     return
+        // } 
+        // if(value.password !== found.password){
+        //     window.alert('Your Password Invalid')
+        //     return
+        // }
+        // dispatch(addProfile(value))
     })
     
     
@@ -62,7 +61,7 @@ const onSubmit = (value)=>{
 React.useEffect(() => {
     if (token !== '') {
     window.alert('Login Succes')
-    navigate('/');
+    navigate('/profile');
     }
 }, [token]);
 

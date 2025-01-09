@@ -1,11 +1,48 @@
 import React from 'react'
 import star from '../assets/star.svg'
 import lingkaran from '../assets/ellipse.svg'
-import profile from '../assets/profileimg.png'
+import profile from '../assets/profileDefault.svg'
 import ProfilePage from './ProfilePage'
+import { useSelector } from 'react-redux';
+
+const ALLOWED_EXT_TO_UPLOAD = ["image/jpeg", "image/jpg", "image/png"]
 
 function CardProfile() {
     const [isShow, Setshow] = React.useState(false)
+    const card = useSelector(state=>state.profile.data)
+    const [file, setfile] = React.useState({})
+    const selectImage = (e)=>{
+        const selected = e.target.files[0]
+        // console.log(selected)
+        // console.log(e)
+        if (selected.size > 2 * 1024 * 1024){
+            window.alert("File size to large")
+            return
+        }
+        if (!ALLOWED_EXT_TO_UPLOAD.includes(selected.type)){
+            window.alert("File type not supported") 
+        }
+        setfile(selected)
+        // console.log(setfile)
+    }
+    console.log(file)
+    const updateImage = (update) =>{
+        const formData = new FormData(update)
+
+        Object.keys(update).forEach(key=>{
+            formData.append(key. update(key))
+        })
+
+        if (file.name){
+            formData.append('image', file)
+        }
+        fetch ("http://localhost:8888/profile", {
+            method: "PATCH",
+            body: formData,
+            headers : {
+                'Content-type': 'multipart/form-data'
+        }})
+    }
   return (
     <div>
         {isShow &&(
@@ -21,10 +58,17 @@ function CardProfile() {
                 <div>INFO</div>
                 <div>. . .</div>
             </div>
-            <img className='w-[136px] aspect-square rounded-full' src={profile} alt="" />
+            <form className='w-full h-full flex flex-col justify-center items-center' onSubmit={updateImage}>
+                <label className='flex flex-col justify-center items-center gap-5'>
+                <img className='w-[136px] aspect-square rounded-full cursor-pointer hover:opacity-50 hover:bg-black' src={profile} alt="" />
+                {/* <span className=''>{file.name}</span> */}
+                <input type="file" id="image" onChange={selectImage} name='image' className='hidden'/>
+                </label>
+                {/* <button className='bg-slate-400 w-16 h-10 rounded border'>Upload File</button> */}
+            </form>
             <div className='flex flex-col justify-center items-center gap-1'>
-            <div>Jonas El Rodriguez</div>
-            <div>Moviegoers</div>
+            {card.first_name !== "" ? <div>{card.first_name}</div> : <div>First Name</div>}
+            {card.last_name !== "" ? <div>{card.last_name}</div> : <div>Last Name</div>}
             </div>
         </div>
         <div className='bg-white px-10 py-10 rounded-b-lg md:hidden flex flex-col gap-8'>

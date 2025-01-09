@@ -10,10 +10,11 @@ function MovieCard(props) {
   const [image, Setimage] = useState([])
 
   React.useEffect(()=> {
-    fetch('https://rickandmortyapi.com/api/character')
-    .then(res=>res.json())
-    .then(response=>(Setimage(response.results)))
-  })
+    fetch('https://localhost:8888/movies')
+    //  method: "GET", 
+    // .then(res=>res.json())
+    // .then(response=>(Setimage(response.results)))
+  },[])
   
   return (
     <div>
@@ -42,82 +43,9 @@ function MovieCard(props) {
             </div>
               </div>              
             )))}
-            {/* props pertama */}
-              {/* {props.item === 'image1' && (
-                <div className=' group w-[264px] h-[405px] rounded-xl overflow-hidden relative'>
-                <img className='w-[264px] h-[405px] absolute' src={image1} alt="" />
-                <div className='w-full h-full bg-[rgba(0,0,0,0.5)] invisible group-hover:visible absolute flex 
-                justify-center items-center flex-col gap-5'>
-                <Link to="/detail" className='w-44 h-12 bg-orange-600 flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Detail</Link>
-                    <div className='w-44 h-12  flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Buy Tiket</div>
-                </div>
-              </div>
-                )}
-              {props.item === 'image2' && (
-                <div className=' group w-[264px] h-[405px] rounded-xl overflow-hidden relative'>
-                <img className='w-[264px] h-[405px] absolute' src={image2} alt="" />
-                <div className='w-full h-full bg-[rgba(0,0,0,0.5)] invisible group-hover:visible absolute flex 
-                justify-center items-center flex-col gap-5'>
-                <Link to="/detail" className='w-44 h-12 bg-orange-600 flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Detail</Link>
-                    <div className='w-44 h-12  flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Buy Tiket</div>
-                </div>
-              </div>
-                )}
-              {props.item === 'image3' && (
-                <div className=' group w-[264px] h-[405px] rounded-xl overflow-hidden relative'>
-                <img className='w-[264px] h-[405px] absolute' src={image3} alt="" />
-                <div className='w-full h-full bg-[rgba(0,0,0,0.5)] invisible group-hover:visible absolute flex 
-                justify-center items-center flex-col gap-5'>
-                <Link to="/detail" className='w-44 h-12 bg-orange-600 flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Detail</Link>
-                    <div className='w-44 h-12  flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Buy Tiket</div>
-                </div>
-              </div>
-                )}
-              {props.item === 'image4' && (
-                <div className=' group w-[264px] h-[405px] rounded-xl overflow-hidden relative'>
-                <img className='w-[264px] h-[405px] absolute' src={image4} alt="" />
-                <div className='w-full h-full bg-[rgba(0,0,0,0.5)] invisible group-hover:visible absolute flex 
-                justify-center items-center flex-col gap-5'>
-                <Link to="/detail" className='w-44 h-12 bg-orange-600 flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Detail</Link>
-                    <div className='w-44 h-12  flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Buy Tiket</div>
-                </div>
-              </div>
-                )}
-              {props.item === 'image5' && (
-                <div className=' group w-[264px] h-[405px] rounded-xl overflow-hidden relative'>
-                <img className='w-[264px] h-[405px] absolute' src={image5} alt="" />
-                <div className='w-full h-full bg-[rgba(0,0,0,0.5)] invisible group-hover:visible absolute flex 
-                justify-center items-center flex-col gap-5'>
-                <Link to="/detail" className='w-44 h-12 bg-orange-600 flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Detail</Link>
-                    <div className='w-44 h-12  flex justify-center items-center rounded-lg 
-                    text-white border-orange-700 border-2'>Buy Tiket</div>
-                </div>
-              </div>
-                )} */}
-              
-            {/* <div className='flex justify-start'>
-              {props.tittle}</div> */}
-
             <div className='text-lg text-blue-700 font-bold'>
               {props.date}
             </div>
-            {/* <div className='flex gap-2'>
-                <span className='w-20 h-8 bg-orange-200 rounded-2xl  text-white text-xs flex justify-center items-center font-semibold'>
-                  {props.genre1}
-                </span>
-                <span className='w-24 h-8 bg-orange-200 rounded-2xl text-white  text-xs flex justify-center items-center font-semibold' >
-                  {props.genre2}
-                </span>
-            </div> */}
         </div>
     </div>
   )

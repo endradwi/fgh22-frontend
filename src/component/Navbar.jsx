@@ -2,19 +2,32 @@ import React from 'react'
 import logo from '../assets/imagelogo.png'
 import { GiHamburgerMenu } from "react-icons/gi";
 import {Link} from 'react-router-dom'
-import profile from '../assets/profileimg.png'
+import profile from '../assets/profileDefault.svg'
 import { useSelector } from 'react-redux';
 import { logout as logoutAction } from '../redux/reducers/auth'
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import * as profileAction from '../redux/reducers/profile'
 
 function Navbar(Navbartop) {
 const [isShow, Setshow] = React.useState(false)
 // const navigate = useNavigate()
 const token = useSelector((state)=>state.auth.token)
 const dispatch = useDispatch()
+
+async function getProfile(token) {
+    const data = await (await fetch("http://localhost:8888/profile", {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })).json()
+    console.log(data)
+    dispatch(profileAction.addProfile(data.results))    
+}
+
 React.useEffect(() => {
-    
+    if (token !== ""){
+    getProfile(token)
+    }
 }, [token]);
 return (
     <div>
@@ -37,7 +50,7 @@ return (
             <a href="#">Buy Ticket</a>
             </li>
         </ul>
-        {token === 'login' ?
+        {token !== '' ?
         <div className='flex gap-3 md:flex-row flex-col items-center'>
         <select name="" id="">
             <option value="">Location</option>
@@ -63,7 +76,7 @@ return (
         <Link to='/homepage'>Buy Ticket</Link>
         </li>
     </ul>
-    {token === 'login' ?
+    {token !== '' ?
         <div className='flex gap-3 md:flex-row flex-col items-center'>
         <select name="" id="">
             <option value="">Location</option>
@@ -111,7 +124,7 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        {token === 'login' && (
+        {token !== '' && (
         <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
         )}
         </div>
@@ -143,7 +156,7 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        {token === 'login' && (
+        {token !== '' && (
         <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
         )}
         </div>
@@ -174,7 +187,7 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        {token === 'login' && (
+        {token !== '' && (
         <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
         )}
         </div>
@@ -192,12 +205,12 @@ return (
             <a href="#">Buy Ticket</a>
             </li>
         </ul>
-        <div className='flex gap-3'>
+        <div className='flex gap-3 md:flex-row flex-col items-center'>
         <select name="" id="">
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        {token === 'login' && (
+        {token !== '' && (
            <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
         )}
         </div>

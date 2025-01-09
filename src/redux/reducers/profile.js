@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {};
+const initialState = {
+    data: {}
+}
 
 const profile = createSlice({
 name: 'profile',
@@ -8,9 +10,9 @@ initialState,
 reducers: {
     addProfile: (state, action) => {
         state.data = action.payload
-        if(state.data !== ''){
-            state.data = [...state.data, action.payload]
-        }
+        // if(state.data !== ''){
+            // state.data = [...state.data, action.payload]
+        // }
     },
 },
 });
