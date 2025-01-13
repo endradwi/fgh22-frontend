@@ -12,9 +12,12 @@ import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import { IoCheckmark } from "react-icons/io5";
 import { IoCloseCircle } from "react-icons/io5";
+import { useSelector } from 'react-redux';
 
 function OrderPage() {
 const [isShow, Setshow] = React.useState(false)
+const movieData = useSelector(state=>state.movie.movie)
+const seatData = useSelector(state=>state.movie.seat)
 React.useEffect(() => {
     window.scrollTo(0, 0);
 }, []);
@@ -48,7 +51,7 @@ return (
                     </div>
                     <label htmlFor="">MOVIE TITLE</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='Spider-Man: Homecoming'/>
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" value={movieData.tittle}/>
                     </div>
                     <label htmlFor="">CINEMA NAME</label>
                     <div>
@@ -56,11 +59,11 @@ return (
                     </div>
                     <label htmlFor="">NUMBER OF TICKETS</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='3 pieces'/>
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" value={seatData.length + " pieces"}/>
                     </div>
                     <label htmlFor="">TOTAL PAYMENT</label>
                     <div>
-                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" placeholder='$30,00'/>
+                        <input className='border-b-2 border-gray-300 w-96 md:w-screen max-w-2xl outline-none pb-2' type="text" value={`$${seatData.length * 10}`}/>
                     </div>
                     <span>Personal Information</span>
                     <label htmlFor="">Full Name</label>
@@ -79,28 +82,28 @@ return (
                 </form>
                 <span>Payment Method</span>
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-5'>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={gpay} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={visa} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={gopay} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={paypal} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={dana} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={bca} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={bri} alt="" />
                     </div>
-                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center'>
+                    <div className='py-3 rounded-md border border-gray-300 flex justify-center items-center hover:bg-gray-500'>
                         <img src={ovo} alt="" />
                     </div>
                 </div>

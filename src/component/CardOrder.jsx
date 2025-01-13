@@ -1,8 +1,11 @@
 import React from 'react'
 import cine from '../assets/Cine.svg'
 import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 function CardOrder() {
+    const movieData = useSelector(state=>state.movie.movie)
+    const seatData = useSelector(state=>state.movie.seat)
 return (
     <div>
         <div className='hidden md:flex flex-col gap-11'>
@@ -14,7 +17,7 @@ return (
                 </div>
                 <div className='flex justify-between gap-5'>
                     <div>Movie selected</div>
-                    <div>Spider-Man: Homecoming</div>
+                    <div>{movieData.tittle}</div>
                 </div>
                 <div className='flex justify-between gap-5'>
                     <div>Tuesday, 07 July 2020</div>
@@ -26,12 +29,12 @@ return (
                 </div>
                 <div className='flex justify-between gap-5'>
                     <div>Seat choosed</div>
-                    <div>C4, C5, C6</div>
+                    <div>{seatData}</div>
                 </div>
             </div>
             <div className='px-6 bg-white rounded-b-lg py-10 flex justify-between'>
                 <div>Total Payment</div>
-                <div>$30</div>
+                <div>{`$${seatData.length * 10}`}</div>
             </div>
         </div>
         <Link to="/payment"> <div className='w-96 h-14 rounded-lg bg-orange-600 flex justify-center items-center text-white'>Checkout now</div></Link>

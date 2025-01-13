@@ -16,7 +16,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-<Navbar tittle="navbarprofile"  />
+<Navbar tittle="navbarhome"  />
 <div className='bg-white pt-6 flex gap-14 md:hidden justify-center rounded-lg'>
     <Link to='/profile'>Account Settings</Link>
     <div className='border-b-orange-500 border-b-2 pb-6'>Order History</div>

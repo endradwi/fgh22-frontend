@@ -24,12 +24,13 @@ const loginFormSchema = yup.object({
 function Register() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [isShow, Setshow] = React.useState(false)
     const {register, handleSubmit, formState:{errors}} = useForm({resolver: yupResolver(loginFormSchema)})
     const regis = useSelector((state) => state.users.data);
     const onSubmit = (value)=>{
         const newData = new URLSearchParams(value)
         const nq = newData.toString()
-        console.log(nq)
+        // console.log(nq)
         fetch("http://localhost:8888/auth/register", {
             method : "POST",
             body :nq,
@@ -49,16 +50,15 @@ function Register() {
         // dispatch(addUsers(value))
         // navigate('/login')
         // })
-        console.log(value)
-        const found = regis.find(user=>user.email === value.email)
-        if(found){
-            window.alert('Email registred')
-            return
-        }
-        window.alert('Register Done')
-
+        // console.log(value)
+        // const found = regis.find(user=>user.email === value.email)
+        // if(found){
+            // window.alert('Email registred')
+            // return
+        // }
         dispatch(addUsers(value))
         navigate('/login')
+        // window.alert('Register Done')
     }
 
 return (
@@ -84,6 +84,7 @@ return (
             <div className='text-lg text-gray-400'>Done</div>
             </div>
             </div>
+            {isShow && (<div> Hello World </div>)}
             <form className='flex flex-col gap-6' onSubmit={handleSubmit(onSubmit)}>
             <label className='text-xl' htmlFor="email">Email</label>
             <div className='w-full'>

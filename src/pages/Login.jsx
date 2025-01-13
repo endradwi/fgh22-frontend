@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { addProfile } from '../redux/reducers/profile';
+// import { addProfile } from '../redux/reducers/profile';
 import { authentic } from '../redux/reducers/auth';
 
 
@@ -53,14 +53,14 @@ const onSubmit = (value)=>{
         //     window.alert('Your Password Invalid')
         //     return
         // }
-        // dispatch(addProfile(value))
+        // dispatch(addProfile(response.results))
     })
     
     
 }
 React.useEffect(() => {
     if (token !== '') {
-    window.alert('Login Succes')
+    // window.alert('Login Succes')
     navigate('/profile');
     }
 }, [token]);

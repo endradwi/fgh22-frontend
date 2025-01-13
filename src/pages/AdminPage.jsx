@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import { FiCalendar } from "react-icons/fi";
-import image from '../assets/image1.jpg'
+import { useForm } from 'react-hook-form';
 import { FaEye } from "react-icons/fa";
 import { FaPen } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
@@ -10,36 +10,80 @@ import Navbar from '../component/Navbar';
 
 
 function AdminPage() {
-React.useEffect(() => {
-    window.scrollTo(0, 0);
-}, []);
+    const [movie, setMovie] = useState([])
+    const [info, setInfo] = useState({})
+    const {handleSubmit, register} = useForm()
+
+React.useEffect(()=>{
+    fetch("http://localhost:8888/movies")
+    .then(res=>res.json())
+    .then(response => {
+        setMovie(response.results)
+        setInfo(response.page_info)
+        console.log(response.page_info)
+    })
+}, [])
+    const renderItem = (value, index) => {
+        return (
+            <tr key={`list-movie-${value.id}-${index}`}>
+                <td>{value.id}</td>
+                <td ><img className='h-12 w-10' src={`http://localhost:8888/movies/image/${value.image}`} alt="" /></td>
+                <td>{value.tittle}</td>
+                <td>{value.genre}</td>
+                <td>{value.release_date}</td>
+                <td>{value.Duration}</td>
+                <td className='p-5 flex gap-2'>
+                    <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
+                    <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen />navigate </div>
+                    <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
+                </td>
+            </tr>
+        ) 
+    }
+    const searchMovie = (val) =>{
+        const url = new URL("http://localhost:8888/movies")
+        url.searchParams.append("search", val.search)
+        fetch(url)
+        .then(res=>res.json())
+        .then(response => {
+            setMovie(response.results)
+            setInfo(response.page_info)
+        })
+    }
+// React.useEffect(() => {
+//     window.scrollTo(0, 0);
+// }, []);
 return (
     <>
     <Navbar tittle="navbaradmin" name='black' />
     <main className='pt-14 px-20 pb-24 flex justify-center bg-gray-300'>
-    <div className='bg-white flex flex-col rounded-2xl gap-10 pt-7 pr-9 pb-10 pl-14 w-full'>
+    <div className='bg-white flex flex-col rounded-2xl gap-10 pt-7 pr-9 pb-10 pl-14'>
         <div className='flex justify-between items-center'>
             <span className='text-2xl font-bold'>List Movie</span>
-            <form className='flex gap-3.5'>
-                <label htmlFor=""/>
-                <div className='bg-gray-300 rounded-xl py-3.5 px-5 md:flex items-center gap-10 hidden'>
-                <FiCalendar className='text-gray-600' />
-                <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none '>
-                    <option value="">November 2023</option>
-                </select>
+            <form className='flex gap-3.5' onSubmit={handleSubmit(searchMovie)}>
+                <label htmlFor="" >
+                <div className='rounded-xl md:flex items-center gap-10 hidden'>
+                {/* <FiCalendar className='text-gray-600' /> */}
+                {/* <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none '> */}
+                    {/* <option value="">November 2023</option> */}
+                {/* </select> */}
+                <input type="text" {...register("search")} placeholder='Search movie...' 
+                className='h-full w-full px-5 py-5 rounded-xl box-content border border-black' />
+                <button className='hidden'>Submit</button>
                 </div>
+                </label>
                <Link to="/addmovie" className='h-14 w-36 bg-orange-600 text-white rounded-xl flex justify-center items-center'><FaPlus className='block md:hidden text-2xl mr-5'/>Add Movies</Link>
             </form>
             
             </div>
-            <div className='bg-gray-300 rounded-xl py-3.5 px-5 flex items-center gap-10 md:hidden'>
+            <form className='bg-gray-300 rounded-xl py-3.5 px-5 flex items-center gap-10 md:hidden'>
                 <FiCalendar className='text-gray-600' />
                 <select name="" id="" className='text-base font-semibold bg-transparent text-gray-600 outline-none '>
                     <option value="">November 2023</option>
                 </select>
-        </div>
-        <div className='w-full overflow-x-scroll'>
-        <table className='text-center w-full '>
+            </form>
+        <div>
+        <table>
             <thead>
                 <tr className=' border-b-2 border-gray-200 '>
                     <td className='p-5'>No</td>
@@ -52,92 +96,17 @@ return (
                 </tr>
             </thead>
             <tbody>
-                <tr className=' border-b-2 border-gray-200 '>
-                    <td className='p-5'>1</td>
-                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
-                    <td className='p-5'>Spiderman HomeComing</td>
-                    <td className='p-5'>Action, Adventure</td>
-                    <td className='p-5'>07/05/2023</td>
-                    <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5 flex gap-2'>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
-                    </td>
-                </tr>
-                <tr className=' border-b-2 border-gray-200 '>
-                    <td className='p-5'>1</td>
-                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
-                    <td className='p-5'>Spiderman HomeComing</td>
-                    <td className='p-5'>Action, Adventure</td>
-                    <td className='p-5'>07/05/2023</td>
-                    <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5 flex gap-2'>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
-                    </td>
-                </tr>
-                <tr className=' border-b-2 border-gray-200 '>
-                    <td className='p-5'>1</td>
-                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
-                    <td className='p-5'>Spiderman HomeComing</td>
-                    <td className='p-5'>Action, Adventure</td>
-                    <td className='p-5'>07/05/2023</td>
-                    <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5 flex gap-2'>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
-                    </td>
-                </tr>
-                <tr className=' border-b-2 border-gray-200 '>
-                    <td className='p-5'>1</td>
-                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
-                    <td className='p-5'>Spiderman HomeComing</td>
-                    <td className='p-5'>Action, Adventure</td>
-                    <td className='p-5'>07/05/2023</td>
-                    <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5 flex gap-2'>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
-                    </td>
-                </tr>
-                <tr className=' border-b-2 border-gray-200 '>
-                    <td className='p-5'>1</td>
-                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
-                    <td className='p-5'>Spiderman HomeComing</td>
-                    <td className='p-5'>Action, Adventure</td>
-                    <td className='p-5'>07/05/2023</td>
-                    <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5 flex gap-2'>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
-                    </td>
-                </tr>
-                <tr className=' border-b-2 border-gray-200 '>
-                    <td className='p-5'>1</td>
-                    <td className='p-5 flex justify-center'><img className='h-12 w-10' src={image} alt="" /></td>
-                    <td className='p-5'>Spiderman HomeComing</td>
-                    <td className='p-5'>Action, Adventure</td>
-                    <td className='p-5'>07/05/2023</td>
-                    <td className='p-5'>2 Hours 15 Minute</td>
-                    <td className='p-5 flex gap-2'>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /> </div>
-                        <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
-                    </td>
-                </tr>
+                {movie.map(renderItem)}
             </tbody>
         </table>
         </div>
-        <div className='flex justify-center gap-2'>
-            <button className='text-gray-600 bg-orange-600 rounded-lg flex justify-center items-center py-1 px-3.5'>1</button>
-            <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>2</button>
-            <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>3</button>
-            <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>4</button>
+        <div className='flex gap-2 justify-center'>
+        {[...Array(info.total_page)].map((_, index) => (
+        <button className='text-white bg-orange-600 rounded-lg flex justify-center items-center py-1 px-3.5' key={index}>{index + 1}</button>
+        ))}
+            {/* <button className='text-gray-600 bg-orange-600 rounded-lg flex justify-center items-center py-1 px-3.5'>1</button> */}
+            {/* <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>3</button> */}
+            {/* <button className='text-gray-600 bg-gray-300 rounded-lg flex justify-center items-center py-1 px-3.5'>4</button> */}
         </div>
     </div>
     </main>

@@ -16,9 +16,9 @@ const profile = useSelector(state=>state.profile.data)
 // console.log(profile)
 const {register, handleSubmit} =useForm({
     defaultValues: {
-        firstname: profile.first_name,
-        lastname: profile.last_name,
-        phonenumber: profile.last_name,
+        first_name: profile.first_name,
+        last_name: profile.last_name,
+        phone_number: profile.phone_number,
         email: profile.email
     }
 })
@@ -47,7 +47,7 @@ React.useEffect(() => {
 }, []);
 return (
     <>
-    <Navbar tittle="navbarprofile" />
+    <Navbar tittle="navbarhome" />
     <div className='bg-white pt-6 flex md:hidden justify-center gap-14  rounded-lg'>
         <div className='border-b-orange-500 border-b-2 pb-6'>Account Settings</div>
         <Link to="/orderhistory">Order History</Link>
@@ -67,35 +67,35 @@ return (
             </div>
                 <fieldset className='grid grid-cols-2 gap-6'>
                 <div className='flex flex-col gap-3'>
-                <label htmlFor="firstname">First Name</label>
+                <label htmlFor="first_name">First Name</label>
                 <div>
                     {profile.first_name !== "" ? <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
-                    type="text" {...register('firstname', {required:true})} id='firstname' placeholder={profile.first_name}/> : <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
-                    type="text" {...register('firstname', {required:true})} id='firstname' placeholder='first name'/>}
+                    type="text" {...register('first_name', {required:true})} id='first_name' placeholder={profile.first_name}/> : <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
+                    type="text" {...register('first_name', {required:true})} id='first_name' placeholder='first name'/>}
                 </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                <label htmlFor="lastname">Last Name</label>
+                <label htmlFor="last_name">Last Name</label>
                 <div>
                     {profile.last_name !== "" ? <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
-                    type="text" {...register('lastname', {required:true})} id='lastname' placeholder={profile.last_name}/> : <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
-                    type="text" {...register('lastname', {required:true})} id='lastname' placeholder='last name'/>}
+                    type="text" {...register('last_name', {required:true})} id='last_name' placeholder={profile.last_name}/> : <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44' 
+                    type="text" {...register('last_name', {required:true})} id='last_name' placeholder='last name'/>}
                 </div>
                 </div>
                 <div className='flex flex-col gap-3'>
                 <label htmlFor="">E-mail</label>
                 <div>
                     <input className='py-5 pl-6 border rounded-xl border-gray-300 outline-none pr-44 placeholder:text-gray-800' 
-                    type="text" placeholder={profile.email}/>
+                    type="text" placeholder={profile.email}{...register('email', {required:true})} id='email'/>
                 </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                <label htmlFor="phonenumber">Phone Number</label>
+                <label htmlFor="phone_number">Phone Number</label>
                 <div className='py-5 pl-6 border rounded-xl border-gray-300 flex gap-5'>
                     <span className='border-r-2 border-r-gray-300 pr-5 text-gray-300'>+62</span>
                     {profile.phone_number !== "" ? <input className=' outline-none' type="tel"  
-                    {...register('phonenumber', {required:true})} id='phonenumber' placeholder={profile.phone_number}/> : <input className=' outline-none' type="tel"  
-                    {...register('phonenumber', {required:true})} id='phonenumber' placeholder='82174589324'/>}
+                    {...register('phone_number', {required:true})} id='phone_number' placeholder={profile.phone_number}/> : <input className=' outline-none' type="tel"  
+                    {...register('phone_number', {required:true})} id='phone_number' placeholder='82174589324'/>}
                 </div>
                 </div>
                 </fieldset>

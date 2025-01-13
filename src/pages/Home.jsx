@@ -68,14 +68,9 @@ return (
         <div className='text-lg text-orange-600 font-bold'>MOVIES</div>
         <div className='text-3xl'>Exciting Movies That Should Be Watched Today</div>
     <div className='flex gap-6 flex-shrink-0 overflow-x-scroll justify-between'>
-        <MovieCard item = 'image1' tittle='Agak Laen' genre1="Action" genre2="Adventure"/>
-        {/* <MovieCard item='image2' tittle='Bucin'genre1="Comedy" genre2="Sci-Fi"/>
-        <MovieCard item = 'image3' tittle='Mariposa' genre1="SC-Fi" genre2="Comedy"/>
-        <MovieCard item='image4' tittle='Terminator Genesis'genre1="Action" genre2="Adventure"/>
-        <MovieCard item = 'image5' tittle='Warkop DKI Reborn' genre1="Action" genre2="Comedy"/>
-        <MovieCard item='image1' tittle='Agak Laen'genre1="Comedy" genre2="Sci-Fi"/> */}
+        <MovieCard layout = {"flex"}/>
     </div>
-    <Link to="/homepage"> <div className='text-orange-700 text-lg font-bold flex justify-center items-center gap-3'>View All <IoMdArrowRoundForward className='h-6 w-6'/></div></Link>
+    <Link to="/homepage"> <div className='text-orange-700 text-lg font-bold flex justify-center items-center gap-3'><span className='hover:bg-orange-400 hover:text-white hover rouded px-1 rounded-full flex items-center gap-4'>View All <IoMdArrowRoundForward className='h-6 w-6'/></span></div></Link>
     </div>
     <div className='flex flex-col gap-7'>
         <div className='flex items-center justify-between'>
@@ -93,12 +88,7 @@ return (
         </div>
         </div>
         <div className='flex gap-6 flex-shrink-0 justify-between overflow-x-scroll'>
-            <MovieCard item = 'image1' tittle='Agak Laen' genre1="Action" genre2="Adventure" date="1 Februari 2024"/>
-            {/* <MovieCard item='image2' tittle='Bucin'genre1="Comedy" genre2="Sci-Fi" date="20 Maret 2020"/>
-            <MovieCard item = 'image3' tittle='Mariposa' genre1="SC-Fi" genre2="Comedy" date='12 Maret 2020'/>
-            <MovieCard item='image4' tittle='Terminator Genesis'genre1="Action" genre2="Adventure" date='12 Maret 2020'/>
-            <MovieCard item = 'image5' tittle='Warkop DKI Reborn' genre1="Action" genre2="Comedy" date='Comming Soon'/>
-            <MovieCard item='image1' tittle='Agak Laen'genre1="Comedy" genre2="Sci-Fi" date="1 Februari 2024" /> */}
+            <MovieCard layout="flex"/>
         </div>
     </div>
     <Newslatter />

@@ -163,60 +163,6 @@ return (
             </>
         </nav>
     )}
-    {Navbartop.tittle === "navbarprofile" && (
-        <nav className='px-6 md:px-32 py-7  md:py-0 flex md:flex-row flex-col md:gap-0 gap-5 justify-between shadow items-center text-sm'>
-        <div className='w-full md:w-max flex md:block justify-between'>
-        <img className='h-16 w-20' src={logo} alt="viteLogo" />
-        <button className='md:hidden' onClick={()=>Setshow(!isShow)}><GiHamburgerMenu/></button>
-        </div>
-        {isShow && (
-            <>
-            <ul className=' flex md:flex-row flex-col gap-14 text-xl items-center'>
-            <li>
-            <Link to="/">Home</Link>
-            </li>
-            <li>
-            <Link to="/homepage">Movie</Link>
-            </li>
-            <li>
-            <a href="#">Buy Ticket</a>
-            </li>
-        </ul>
-        <div className='flex gap-3'>
-        <select name="" id="">
-            <option value="">Location</option>
-        </select>
-        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        {token !== '' && (
-        <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
-        )}
-        </div>
-            </>
-        )}
-            <>
-            <ul className=' md:flex md:flex-row flex-col gap-14 text-xl items-center hidden'>
-            <li>
-            <Link to="/homepage">Home</Link>
-            </li>
-            <li>
-            <Link to="/homepage">Movie</Link>
-            </li>
-            <li>
-            <a href="#">Buy Ticket</a>
-            </li>
-        </ul>
-        <div className='flex gap-3 md:flex-row flex-col items-center'>
-        <select name="" id="">
-            <option value="">Location</option>
-        </select>
-        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        {token !== '' && (
-           <Link to='/'> <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button></Link>
-        )}
-        </div>
-            </>
-        </nav>
-    )}
     </div>
 )
 }

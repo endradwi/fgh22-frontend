@@ -14,6 +14,7 @@ import OrderHistoy from './pages/OrderHistory.jsx';
 import Admin from './pages/Admin.jsx';
 import AdminPage from './pages/AdminPage.jsx';
 import AddMovie from './pages/AddMovie.jsx';
+import UpdateMovie from './pages/UpdateMovie.jsx';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: '/detail',
+    path: '/movies/:id',
     element: <Detail />,
   },
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
   {
     path: '/addmovie',
     element: <AddMovie />,
+  },
+  {
+    path: '/update',
+    element: <UpdateMovie />,
   },
 ]);
 function App() {

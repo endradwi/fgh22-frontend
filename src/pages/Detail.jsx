@@ -1,47 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import edu from '../assets/ebv.svg'
 import cine from '../assets/Cine.svg'
 import hiflix from '../assets/hiflix.svg'
 import { IoIosArrowUp } from "react-icons/io";
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Spider from '../assets/spider.svg'
 import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
+import { useDispatch } from 'react-redux';
+import * as getMovie  from '../redux/reducers/movie';
 
 function Detail() {
+
+const [movie, setmovie] = useState([])
+const param = useParams()
+const dispatch = useDispatch()
+
+dispatch(getMovie.addMovie({
+        movie_image : `http://localhost:8888/movies/image/${movie.image}` ,
+        tittle : movie.tittle,
+        genre : movie.genre,
+}))
+
 React.useEffect(() => {
+    fetch(`http://localhost:8888/movies/${param.id}`)
+    .then(res=>res.json())
+    .then(response=>{
+        if (response && response.results){
+            setmovie(response.results)
+            console.log(response.results)
+        }
+    })
     window.scrollTo(0, 0);
-}, []);
+}, [param]);
 return (
     <>
     <Navbar tittle="navbarhome" />
-    <div className='flex bg-[url(./assets/spiderman.svg)] bg-cover bg-center py-36 px-6 md:px-32 relative '>
+    <div className='flex bg-[url(./assets/bg_bioskop.jpeg)] bg-cover bg-center py-36 px-6 md:px-32 relative '>
         <div className='flex md:flex-row flex-col absolute gap-4 w-full max-w-[630px] md:max-w-5xl'>
-            <img src={Spider} alt="" />
+            <img className='w-48 h-96' src={`http://localhost:8888/movies/image/${movie.image}`} alt={movie.tittle} />
             <div className='flex flex-col md:gap-48'>
                 <div className='flex-1'></div>
                 <div className='flex-1 flex flex-col gap-6 justify-center items-center md:justify-start md:items-start'>
-                <div className='text-3xl font-bold'>Spider-Man: Homecoming</div>
+                <div className='text-3xl font-bold'>{movie.tittle}</div>
                     <div className='flex gap-2'>
-                        <span className='py-1 px-5 rounded-2xl bg-orange-600'>Action</span>
-                        <span className='py-1 px-5 rounded-2xl bg-orange-600'>Adventure</span>
+                        {/* {movie.genre.split(",").slice(0,2).map((val)=>( */}
+                            <span className='py-1 px-5 rounded-2xl bg-orange-400'>{movie.genre}</span>
+                            {/* // ))} */}
                     </div>
                     <div className='grid grid-cols-2 max-w-xl md:max-w-3xl'>
                         <div>
                             <div className='text-sm text-orange-300'>Release date</div>
-                            <div className='text-base'>June 28, 2017</div>
+                            <div className='text-base'>{movie.release_date}</div>
                         </div>
                         <div>
                             <div className='text-sm text-orange-300'> Directed by</div>
-                            <div className='text-base'>Jon Watss</div>
+                            <div className='text-base'>{movie.author}</div>
                         </div>
                         <div>
                             <div className='text-sm text-orange-300'>Duration</div>
-                            <div className='text-base'>2 hours 13 minutes </div>
+                            <div className='text-base'>{movie.duration}</div>
                         </div>
                         <div>
                             <div className='text-sm text-orange-300'>Casts</div>
-                            <div className='text-base'>Tom Holland, Michael Keaton, Robert Downey Jr</div>
+                            <div className='text-base'>{movie.actors}</div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +73,7 @@ return (
     <main className='px-6 md:px-32 pb-12 pt-[1100px] md:pt-72 flex flex-col gap-12'>
     <div className='flex flex-col gap-2 '>
         <span className='text-xl font-semibold'>Synopsis</span>
-        <p className='max-w-2xl text-orange-700'>Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. </p>
+        <p className='max-w-2xl text-orange-700'>{movie.synopsis}</p>
     </div>
     <div className='flex flex-col gap-9'>
     <div className='text-3xl font-bold hidden md:block'>Book Tickets</div>
@@ -248,7 +270,7 @@ return (
             <span className='flex justify-center items-center w-10 h-10 bg-gray-400 text-gray-300 rounded-md'>4</span>
         </div>
         <div className='flex justify-center '>
-       <Link className='py-4 px-14 bg-red-300 rounded-xl text-gray-600 font-semibold md:block hidden' to="/orderpage">Book Now</Link>
+       <Link className='py-4 px-14 bg-orange-500 rounded-xl text-white font-semibold md:block hidden' to="/orderpage">Book Now</Link>
         </div>
     </div>
     </main>
