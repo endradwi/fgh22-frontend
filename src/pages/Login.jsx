@@ -61,7 +61,7 @@ const onSubmit = (value)=>{
 React.useEffect(() => {
     if (token !== '') {
     // window.alert('Login Succes')
-    navigate('/profile');
+    navigate('/');
     }
 }, [token]);
 

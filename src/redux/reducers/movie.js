@@ -6,7 +6,8 @@ const initialState = {
         tittle : '',
         genre : '',
     },
-    seat : []
+    seat : [],
+    payment : ""
 }
 
 const movie = createSlice({
@@ -23,9 +24,12 @@ reducers: {
     },
     addSeat: (state,action) =>{
         state.seat = [...state.seat, action.payload]
+    },
+    addPaymentM: (state,action) =>{
+        state.payment = action.payload
     }
 },
 });
 
-export const { addMovie, addSeat } = movie.actions;
+export const { addMovie, addSeat, addPaymentM } = movie.actions;
 export default movie.reducer;

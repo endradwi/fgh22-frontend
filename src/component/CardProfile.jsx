@@ -70,8 +70,8 @@ function CardProfile() {
                 {/* <button className='bg-slate-400 w-16 h-10 rounded border'>Upload File</button> */}
             {/* </form> */}
             <div className='flex flex-col justify-center items-center gap-1'>
-            {card.first_name !== "" ? <div>{card.first_name}</div> : <div>First Name</div>}
-            {card.last_name !== "" ? <div>{card.last_name}</div> : <div>Last Name</div>}
+            {card.first_name !== "" ? <div>{card.first_name + " " + card.last_name}</div> : <div>Fullname</div>}
+            <div>Moviegoers</div>
             </div>
         </div>
         <div className='bg-white px-10 py-10 rounded-b-lg md:hidden flex flex-col gap-8'>
