@@ -88,7 +88,7 @@ return (
         </div>
         </div>
         <div className='flex gap-6 flex-shrink-0 justify-between overflow-x-scroll'>
-            <MovieCard layout="flex"/>
+            <MovieCard layout="flex" date/>
         </div>
     </div>
     <Newslatter />

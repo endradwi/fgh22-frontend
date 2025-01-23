@@ -5,8 +5,9 @@ import {Link} from 'react-router-dom'
 import profile from '../assets/profileDefault.svg'
 import { useSelector } from 'react-redux';
 import { logout as logoutAction } from '../redux/reducers/auth'
+import {addProfile, logoutProfile} from '../redux/reducers/profile'
 import { useDispatch } from 'react-redux';
-import * as profileAction from '../redux/reducers/profile'
+// import * as profileAction from '../redux/reducers/profile'
 
 function Navbar(Navbartop) {
 const [isShow, Setshow] = React.useState(false)
@@ -21,7 +22,7 @@ async function getProfile(token) {
         }
     })).json()
     console.log(data)
-    dispatch(profileAction.addProfile(data.results))    
+    dispatch(addProfile(data.results))    
 }
 
 React.useEffect(() => {
@@ -82,7 +83,9 @@ return (
             <option value="">Location</option>
         </select>
         <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
-        <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
+        <button onClick={()=>{
+            dispatch(logoutProfile())
+            dispatch(logoutAction())}} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div> : <div className='flex gap-3 md:flex-row flex-col items-center'>
             <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
             <Link to="/login" className='border-orange-600 border rounded-2xl px-4 py-3 bg-orange-600 text-white'>Signin</Link>

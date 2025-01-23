@@ -29,6 +29,8 @@ const dispatch = useDispatch()
 const navigate = useNavigate();
 // const regis = useSelector((state) => state.users.data);
 const token = useSelector((state) => state.auth.token);
+const [isShow, setShow] = React.useState(false)
+const [mess, setMess] = React.useState("")
 const {register, handleSubmit, formState:{errors}} =useForm({resolver: yupResolver(loginFormSchema)})
 const onSubmit = (value)=>{
     const newData = new URLSearchParams(value)
@@ -43,17 +45,12 @@ const onSubmit = (value)=>{
     .then(res => res.json())
     .then(response => {
         dispatch(authentic(response.results))
-        // const found = regis.find(user=>user.email === value.email)
-        // if(!found){
-        //     window.alert('You Must Register')
-        //     navigate('/register')
-        //     return
-        // } 
-        // if(value.password !== found.password){
-        //     window.alert('Your Password Invalid')
-        //     return
-        // }
-        // dispatch(addProfile(response.results))
+        if (!response.success){
+            setMess(response.message)
+                setShow(true) // Show popup
+                return
+        }
+        setMess(response.message)
     })
     
     
@@ -117,6 +114,7 @@ return (
                 <hr className='border border-gray-300 w-48' />
             </div>
             <BtnLgn />
+            {isShow && <div className='bg-red-500 w-[450px] h-[300px] rounded-2xl flex justify-center items-center absolute top-72' onClick={()=>setShow(!isShow)}>{mess}</div>}
         </div>
         </div>
     </div>

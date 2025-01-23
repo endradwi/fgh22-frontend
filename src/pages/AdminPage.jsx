@@ -34,7 +34,7 @@ React.useEffect(()=>{
                 <td>{value.Duration}</td>
                 <td className='p-5 flex gap-2'>
                     <div className='py-2 px-2 text-black rounded-xl bg-orange-600'><FaEye /> </div>
-                    <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen />navigate </div>
+                    <div className='py-2 px-2 text-black rounded-xl bg-orange-400'><FaPen /></div>
                     <div className='py-2 px-2 text-black rounded-xl bg-red-600'><FaTrash /> </div>
                 </td>
             </tr>

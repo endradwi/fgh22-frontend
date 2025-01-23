@@ -32,6 +32,9 @@ function MovieCard(props) {
               </div>
               <div className='flex justify-start'>
               {data.tittle}</div>
+              <div className='text-lg text-blue-700 font-bold'>
+              {props.date && data.release_date.split("T").slice(0,1)}
+            </div>
               <div className='flex gap-3'>
                   {data.genre.split(",").slice(0,2).map((val)=>(
                     <span className='w-24 h-8 bg-orange-400 rounded-2xl text-white text-xs flex justify-center items-center font-semibold'>
@@ -41,9 +44,7 @@ function MovieCard(props) {
             </div>
               </div>              
             )))}
-            <div className='text-lg text-blue-700 font-bold'>
-              {props.date}
-            </div>
+            
         </div>
     </div>
   )

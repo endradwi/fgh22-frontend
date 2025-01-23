@@ -14,8 +14,11 @@ reducers: {
         // }
         state.data = {...state.data, ...action.payload}
     },
+    logoutProfile: () =>{
+        return initialState
+    }
 },
 });
 
-export const { addProfile } = profile.actions;
+export const { addProfile, logoutProfile } = profile.actions;
 export default profile.reducer;
