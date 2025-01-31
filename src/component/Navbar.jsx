@@ -13,6 +13,7 @@ function Navbar(Navbartop) {
 const [isShow, Setshow] = React.useState(false)
 // const navigate = useNavigate()
 const token = useSelector((state)=>state.auth.token)
+const profileData = useSelector((state)=>state.profile.data)
 const dispatch = useDispatch()
 
 async function getProfile(token) {
@@ -21,7 +22,6 @@ async function getProfile(token) {
             "Authorization": `Bearer ${token}`
         }
     })).json()
-    console.log(data)
     dispatch(addProfile(data.results))    
 }
 
@@ -56,7 +56,7 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profileData.image === "" ? profile : `http://localhost:8888/profile/image/${profileData.image}`} alt="" /></Link>
         <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div> : <div className='flex gap-3 md:flex-row flex-col items-center'>
             <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
@@ -82,7 +82,7 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profile} alt="" /></Link>
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profileData.image === "" ? profile : `http://localhost:8888/profile/image/${profileData.image}`} alt="" /></Link>
         <button onClick={()=>{
             dispatch(logoutProfile())
             dispatch(logoutAction())}} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
