@@ -7,6 +7,7 @@ import Newslatter from '../component/Newslatter'
 import { IoMdArrowRoundForward } from "react-icons/io";
 import MovieCard from '../component/MovieCard'
 import { useForm } from 'react-hook-form';
+import { API_URL } from '../config/api-config';
 
 function Home() {
 const [movie, setmovie] = useState([])
@@ -20,7 +21,7 @@ const location = useLocation();
 const searchForm = useForm();
 
 const fetchMovie = (search, page, limit = 10, genre = "") => {
-    const url = new URL('http://localhost:8888/movies');
+    const url = new URL(`${API_URL}/movies`);
     const params = new URLSearchParams();
 
     if (search) {

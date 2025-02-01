@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { logout as logoutAction } from '../redux/reducers/auth'
 import {addProfile, logoutProfile} from '../redux/reducers/profile'
 import { useDispatch } from 'react-redux';
+import { API_URL } from '../config/api-config';
 // import * as profileAction from '../redux/reducers/profile'
 
 function Navbar(Navbartop) {
@@ -17,7 +18,7 @@ const profileData = useSelector((state)=>state.profile.data)
 const dispatch = useDispatch()
 
 async function getProfile(token) {
-    const data = await (await fetch("http://localhost:8888/profile", {
+    const data = await (await fetch(`${API_URL}/profile`, {
         headers: {
             "Authorization": `Bearer ${token}`
         }
@@ -56,7 +57,7 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profileData.image === "" ? profile : `http://localhost:8888/profile/image/${profileData.image}`} alt="" /></Link>
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profileData.image === "" ? profile : `${API_URL}/profile/image/${profileData.image}`} alt="" /></Link>
         <button onClick={()=>dispatch(logoutAction())} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>
         </div> : <div className='flex gap-3 md:flex-row flex-col items-center'>
             <Link to="/register" className='border-orange-600 border rounded-2xl px-4 py-3 text-red-700'>Signup</Link>
@@ -82,7 +83,7 @@ return (
         <select name="" id="">
             <option value="">Location</option>
         </select>
-        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profileData.image === "" ? profile : `http://localhost:8888/profile/image/${profileData.image}`} alt="" /></Link>
+        <Link to='/profile'> <img className='w-14 h-12 rounded-full' src={profileData.image === "" ? profile : `${API_URL}/profile/image/${profileData.image}`} alt="" /></Link>
         <button onClick={()=>{
             dispatch(logoutProfile())
             dispatch(logoutAction())}} className='border-orange-500 rounded-lg border py-2 px-4 text-orange-700 flex justify-center items-center'>Log Out</button>

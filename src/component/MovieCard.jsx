@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { addMovie } from '../redux/reducers/movie';
+import { API_URL } from '../config/api-config';
 
 function MovieCard(props) {
   const [image, Setimage] = useState([])
   const dispatch = useDispatch()
 
   useEffect(()=> {
-    fetch('http://localhost:8888/movies')
+    fetch(`${API_URL}/movies`)
     .then(res=>res.json())
     .then(response=>{
       Setimage(response.results)})

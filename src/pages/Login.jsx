@@ -11,6 +11,7 @@ import * as yup from "yup";
 // import { addProfile } from '../redux/reducers/profile';
 import { authentic } from "../redux/reducers/auth";
 import { FaEyeSlash } from "react-icons/fa";
+import { API_URL } from "../config/api-config";
 
 const loginFormSchema = yup.object({
   email: yup
@@ -44,7 +45,7 @@ function Login() {
   const onSubmit = (value) => {
     const newData = new URLSearchParams(value);
     const nq = newData.toString();
-    fetch("http://localhost:8888/auth/login", {
+    fetch(`${API_URL}/auth/login`, {
       method: "POST",
       body: nq,
       headers: {

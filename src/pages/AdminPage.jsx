@@ -7,6 +7,7 @@ import { FaPen } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import Navbar from '../component/Navbar';
+import { API_URL } from '../config/api-config';
 
 
 function AdminPage() {
@@ -15,7 +16,7 @@ function AdminPage() {
     const {handleSubmit, register} = useForm()
 
 React.useEffect(()=>{
-    fetch("http://localhost:8888/movies")
+    fetch(`${API_URL}/movies`)
     .then(res=>res.json())
     .then(response => {
         setMovie(response.results)
@@ -27,7 +28,7 @@ React.useEffect(()=>{
         return (
             <tr key={`list-movie-${value.id}-${index}`}>
                 <td>{value.id}</td>
-                <td ><img className='h-12 w-10' src={`http://localhost:8888/movies/image/${value.image}`} alt="" /></td>
+                <td ><img className='h-12 w-10' src={`${API_URL}/movies/image/${value.image}`} alt="" /></td>
                 <td>{value.tittle}</td>
                 <td>{value.genre}</td>
                 <td>{value.release_date}</td>
@@ -41,7 +42,7 @@ React.useEffect(()=>{
         ) 
     }
     const searchMovie = (val) =>{
-        const url = new URL("http://localhost:8888/movies")
+        const url = new URL(`${API_URL}/movies`)
         url.searchParams.append("search", val.search)
         fetch(url)
         .then(res=>res.json())

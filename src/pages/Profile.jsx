@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addProfile } from "../redux/reducers/profile";
+import { API_URL } from "../config/api-config";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function Profile() {
     console.log("data =", selected);
     console.log(value);
   
-    fetch("http://localhost:8888/profile", {
+    fetch(`${API_URL}/profile`, {
       method: "PATCH",
       body: formData,
       headers: {

@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaEyeSlash } from "react-icons/fa";
+import { API_URL } from "../config/api-config";
 
 const loginFormSchema = yup.object({
   email: yup
@@ -42,7 +43,7 @@ function Register() {
   const onSubmit = (value) => {
     const newData = new URLSearchParams(value);
     const nq = newData.toString();
-    fetch("http://localhost:8888/auth/register", {
+    fetch(`${API_URL}/auth/register`, {
       method: "POST",
       body: nq,
       headers: {

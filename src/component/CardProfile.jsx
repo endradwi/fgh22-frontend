@@ -5,6 +5,7 @@ import profile from "../assets/profileDefault.svg";
 import ProfilePage from "./ProfilePage";
 import { useDispatch, useSelector } from "react-redux";
 import { addProfile } from "../redux/reducers/profile";
+import { API_URL } from "../config/api-config";
 
 const ALLOWED_EXT_TO_UPLOAD = ["image/jpeg", "image/jpg", "image/png"];
 
@@ -63,7 +64,7 @@ function CardProfile() {
           <label className="flex flex-col justify-center items-center gap-5">
             <img
               className="w-[136px] aspect-square rounded-full cursor-pointer hover:opacity-50 hover:bg-black"
-              src={profile.image === "" ? profile : `http://localhost:8888/profile/image/${profile.image}`}
+              src={profile.image === "" ? profile : `${API_URL}/profile/image/${profile.image}`}
               alt=""
             />
             {/* <span className=''>{file.name}</span> */}

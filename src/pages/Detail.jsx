@@ -9,6 +9,7 @@ import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import { useDispatch } from 'react-redux';
 import * as getMovie  from '../redux/reducers/movie';
+import { API_URL } from '../config/api-config';
 
 function Detail() {
 
@@ -17,13 +18,13 @@ const param = useParams()
 const dispatch = useDispatch()
 
 dispatch(getMovie.addMovie({
-        movie_image : `http://localhost:8888/movies/image/${movie.image}` ,
+        movie_image : `${API_URL}/movies/image/${movie.image}` ,
         tittle : movie.tittle,
         genre : movie.genre,
 }))
 
 React.useEffect(() => {
-    fetch(`http://localhost:8888/movies/${param.id}`)
+    fetch(`${API_URL}/movies/${param.id}`)
     .then(res=>res.json())
     .then(response=>{
         if (response && response.results){
@@ -38,7 +39,7 @@ return (
     <Navbar tittle="navbarhome" />
     <div className='flex bg-[url(./assets/bg_bioskop.jpeg)] bg-cover bg-center py-36 px-6 md:px-32 relative '>
         <div className='flex md:flex-row flex-col absolute gap-4 w-full max-w-[630px] md:max-w-5xl'>
-            <img className='w-48 h-96' src={`http://localhost:8888/movies/image/${movie.image}`} alt={movie.tittle} />
+            <img className='w-48 h-96' src={`${API_URL}/movies/image/${movie.image}`} alt={movie.tittle} />
             <div className='flex flex-col md:gap-48'>
                 <div className='flex-1'></div>
                 <div className='flex-1 flex flex-col gap-6 justify-center items-center md:justify-start md:items-start'>
